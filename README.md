@@ -17,7 +17,7 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 | 3 | Wat is de game loop. Actor lifecycle. Besturing en collision. [Oefening](./opdrachten/les3.md) |
 | 4 | Inheritance en Composition. Extenden van een Excalibur class. Actors en child Actors [Oefening](./opdrachten/les4.md) |
 | 5 | Communicatie tussen classes. [Oefening](./opdrachten/les5.md) |
-| 6 | Encapsulation, maak je variabelen private als andere classes er niet bij hoeven te kunnen. Timers gebruiken voor spawning. Score opslaan. [Oefening](./opdrachten/les6.md) |
+| 6 | Encapsulation. Wat is een klassendiagram? Timers gebruiken voor spawning. [Oefening](./opdrachten/les6.md) |
 | 7 | Physics [Oefening](./opdrachten/les7.md)  |
 | 8 | Werken met npm build en publiceren naar github pages. Publiceren op CMGT Arcade Kast.  [Oefening](./opdrachten/les8.md), werken aan eindopdracht  |
 |  | 🚨 Deadline Week 5 : [inleveropdracht](./opdrachten/inleveropdracht.md)  |
