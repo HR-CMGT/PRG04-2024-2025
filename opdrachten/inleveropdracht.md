@@ -11,7 +11,10 @@ In week 1 kies je een van onderstaande templates. Je gaat hier tijdens de lessen
 
 <br>
 <br>
-<Br>
+<br>
+
+# Templates
+
 
 ### Endless Runner
 
@@ -39,15 +42,13 @@ In week 1 kies je een van onderstaande templates. Je gaat hier tijdens de lessen
 <br>
 <br>
 
-### Platformer
-- Om deze template te gebruiken moet je met excalibur physics werken.
-- Speler kan rondlopen in een wereld en springen op platforms. De wereld is groter dan het game viewport.
-- Level ontwerpen waarbij je het einde moet zien te bereiken.
-- Basic physics en gravity gebruiken om te botsen met objecten.
-- Je kan powerups, coins en andere items oppakken.
-- Je moet vijanden ontwijken.
-- Je kan alleen door een deur als je een sleutel hebt.
-- Er zijn meerdere levels met een eigen thema.
+### Froggy Roads
+- Je karakter staat aan de kant van een weg met druk verkeer.
+- Je moet de weg oversteken zonder te botsen.
+- Je kan vier kanten op bewegen.
+- Je kan levens verliezen.
+- Je kan levens terug krijgen door powerups op te pakken.
+- Naar mate je verder komt worden de wegen breder en drukker.
 
 <br>
 <br>
@@ -73,6 +74,34 @@ In week 1 kies je een van onderstaande templates. Je gaat hier tijdens de lessen
 - Ammo kan opgaan, je moet ammo kunnen oppakken.
 - Met een granaat vernietig je alle zombies in het scherm.
     
+
+<br>
+<br>
+<br>
+
+### EXPERT : Platformer
+- Om deze template te gebruiken moet je met excalibur physics werken.
+- Speler kan rondlopen in een wereld en springen op platforms. De wereld is groter dan het game viewport.
+- Level ontwerpen waarbij je het einde moet zien te bereiken.
+- Basic physics en gravity gebruiken om te botsen met objecten.
+- Je kan powerups, coins en andere items oppakken.
+- Je moet vijanden ontwijken.
+- Je kan alleen door een deur als je een sleutel hebt.
+- Er zijn meerdere levels met een eigen thema.
+
+
+<br>
+<br>
+<br>
+
+## Schermafmeting
+
+In `game.js` geef je een schermafmeting aan in 16/9 verhouding. Als je game heel groot is moeten je afbeeldingen ook groter / scherper zijn. Een kleine game heeft vaak een betere performance! Je kan de game schalen naar het scherm van de speler met `displayMode: DisplayMode.FitScreen`. Een aantal geschikte afmetingen:
+
+- 800 x 450
+- 1280 x 720
+- 1600 x 900
+- 1920 x 1080
 
 <br>
 <br>

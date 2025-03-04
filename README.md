@@ -1,4 +1,4 @@
-# PRG04-2023-2024
+# PRG04-2024-2025
 
 ## 👾Object oriented game development 👾
 
@@ -10,17 +10,17 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 
 ## Onderwerpen
 
-| Week | Les | College | Praktijk | 
-|---|------|---------|----------|
-| 2 | 1 | Introductie vak en cursushandleiding, web development. Uitchecken van het Vite Excalibur template project in VS Code. Werken met npm run dev. | [Oefening](./opdrachten/les1.md) en lees alvast de [Inleveropdracht](./opdrachten/inleveropdracht.md) | 
-|  | 2 | Object Oriented Programming met Classes en instances. Properties en methods. Constructor en `this`. De Excalibur Actor class.| [Oefening](./opdrachten/les2.md) |
-| 3 | 3 | Wat is de game loop. Actor lifecycle. Besturing en collision. | [Oefening](./opdrachten/les3.md) |
-|  | 4 | Inheritance en Composition. Extenden van een Excalibur class. Actors en child Actors | [Oefening](./opdrachten/les4.md) |
-| 4 | 5 | Communicatie tussen classes. | [Oefening](./opdrachten/les5.md) |
-|   | 6 | Schermen wisselen met Scenes. Timers en Spawning. Score en UI. | [Oefening](./opdrachten/les6.md) |
-| 5 | 7 | Physics | [Oefening](./opdrachten/les7.md), werken aan eindopdracht  |
-|  | 8 | Werken met npm build en publiceren naar github pages. Publiceren op CMGT Arcade Kast.  | [Oefening](./opdrachten/les8.md), werken aan eindopdracht  |
-|  |  | 🚨 Deadline Week 5 | [inleveropdracht](./opdrachten/inleveropdracht.md)  |
+| Les | Onderwerp | 
+|------|---------|
+| 1 | Introductie vak en cursushandleiding, web development. Uitchecken van het Vite Excalibur template project in VS Code. Werken met npm run dev. Werken met modules, import, export [Oefening](./opdrachten/les1.md) en lees alvast de [Inleveropdracht](./opdrachten/inleveropdracht.md) | 
+| 2 | Object Oriented Programming met Classes en instances. Properties en methods. Constructor en `this`. De Excalibur Actor class. Werken met position en velocity. [Oefening](./opdrachten/les2.md) |
+| 3 | Wat is de game loop. Actor lifecycle. Besturing en collision. [Oefening](./opdrachten/les3.md) |
+| 4 | Inheritance en Composition. Extenden van een Excalibur class. Actors en child Actors [Oefening](./opdrachten/les4.md) |
+| 5 | Communicatie tussen classes. [Oefening](./opdrachten/les5.md) |
+| 6 | Encapsulation, maak je variabelen private als andere classes er niet bij hoeven te kunnen. Timers gebruiken voor spawning. Score opslaan. [Oefening](./opdrachten/les6.md) |
+| 7 | Physics [Oefening](./opdrachten/les7.md)  |
+| 8 | Werken met npm build en publiceren naar github pages. Publiceren op CMGT Arcade Kast.  [Oefening](./opdrachten/les8.md), werken aan eindopdracht  |
+|  | 🚨 Deadline Week 5 : [inleveropdracht](./opdrachten/inleveropdracht.md)  |
 
 
 <br>
@@ -29,7 +29,7 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 
 ## Startcode
 
-- [Startproject Excalibur](https://github.com/HR-CMGT/prg4-startproject-2024)
+- [Startproject Excalibur](https://github.com/HR-CMGT/prg4-startproject-2025)
 - [Chrome Devtool plugin](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
 - [Troubleshooting](./snippets/troubleshooting.md)
 - [Code snippets](./snippets/README.md)
