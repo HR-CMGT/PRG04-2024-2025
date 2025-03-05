@@ -68,7 +68,7 @@ classDiagram
     Animal : +String gender
     Animal: +isMammal()
     Animal: +mate()
-    Wombat --> Hoedje
+    Wombat --* Hoedje
     class Eend{
       +String beakColor
       +swim()
@@ -83,6 +83,8 @@ classDiagram
       +run()
     }
 ```
+
+Zie hier nog een [voorbeeld](../snippets/classdiagram.md)
 
 <br>
 

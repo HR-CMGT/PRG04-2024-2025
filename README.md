@@ -12,7 +12,7 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 
 | Les | Onderwerp | 
 |------|---------|
-| 1 | Introductie vak en cursushandleiding, web development. Uitchecken van het Vite Excalibur template project in VS Code. Werken met npm run dev. Werken met modules, import, export [Oefening](./opdrachten/les1.md) en lees alvast de [Inleveropdracht](./opdrachten/inleveropdracht.md) | 
+| 1 | Introductie vak en cursushandleiding, web development. Uitchecken van het Vite Excalibur template project in VS Code. Werken met npm run dev. Werken met modules, `import, export`. [Oefening](./opdrachten/les1.md) en [Inleveropdracht](./opdrachten/inleveropdracht.md) | 
 | 2 | Object Oriented Programming met Classes en instances. Properties en methods. Constructor en `this`. De Excalibur Actor class. Werken met position en velocity. [Oefening](./opdrachten/les2.md) |
 | 3 | Wat is de game loop. Actor lifecycle. Besturing en collision. [Oefening](./opdrachten/les3.md) |
 | 4 | Inheritance en Composition. Extenden van een Excalibur class. Actors en child Actors [Oefening](./opdrachten/les4.md) |
@@ -32,7 +32,7 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 - [Startproject Excalibur](https://github.com/HR-CMGT/prg4-startproject-2025)
 - [Chrome Devtool plugin](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
 - [Troubleshooting](./snippets/troubleshooting.md)
-- [Code snippets](./snippets/README.md)
+- [🔥 Code snippets](./snippets/README.md)
 
 ## Project publiceren
 
@@ -46,6 +46,8 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 - [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html) en  [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
 - [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
 - [CMGT AI chatbot voor Excalibur](https://ai-assistent-mu.vercel.app) en [Prompting AI tips](./snippets/ai.md)
+
+<br><br><br>
 
 ## Excalibur Code Examples
 
