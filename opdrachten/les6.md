@@ -4,15 +4,45 @@
 - Wat is een klassendiagram
 - Timers en spawning
 
+<br><br><br>
+
 ## Encapsulation
 
--
+Je classes hebben properties zoals age, coins, lives, etc. Deze properties kan je afschermen voor andere classes door ze `private` te maken. Dit helpt om je code overzichtelijker en veiliger te maken. Een `private` property kan nooit door andere classes aangepast worden.
+
+In javascript kan je `private` properties aangeven met een `#` symbool. 
+
+```js
+class Cat {
+    
+    #name 
+    score
+
+    constructor() {
+        this.score = 10
+        console.log(tihs.score)
+
+        this.#name = "Chonkers"
+        console.log(this.#name)
+    }
+}
+```
 
 <br><br><br>
 
 ## Klassendiagram
 
-Een klassendiagram is een visuele weergave van je project. Je kan OOP classes tekenen als blokjes, waarin je de methods en properties aangeeft, waarbij je ook aangeeft of deze properties public of private zijn.
+Een klassendiagram is een visuele weergave van je project. Je kan OOP classes tekenen als blokjes, waarin je de methods en properties aangeeft. Met een `+` en `-` geef je aan of de properties en methods public of private zijn.
+
+```mermaid
+classDiagram
+    class Player{
+        +number lives
+        -number coins
+        +run()
+        -jump()
+    }
+```
 
 Tussen de classes teken je pijltjes die aangeven wat de relatie tussen de classes is:
 - Een class *heeft* een andere class : dit is *composition*
