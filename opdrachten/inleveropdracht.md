@@ -6,7 +6,6 @@ In week 1 kies je een van onderstaande templates. Je gaat hier tijdens de lessen
 - Alle templates werken met het Excalibur Startproject van dit vak.
 - Je werkt er aan om per les, de stof van die les te verwerken in jouw template.
 - Bij het inleveren geef je jezelf punten volgens de criteria uit de cursushandleiding.
-- De vormgeving van je game sluit aan op het thema en doel van je game.
 - Je gebruikt geen tilemaps, spritesheets en geen externe libraries of plugins.
 
 <br>

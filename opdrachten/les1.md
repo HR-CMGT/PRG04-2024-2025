@@ -1,7 +1,10 @@
 # Les 1
 
 - Introductie vak, cursushandleiding, toetsing
-- Introductie modern web development. Uitchecken van het Vite Excalibur template project in VS Code. Werken met npm run dev
+- Introductie modern web development. 
+- Uitchecken van het Vite Excalibur template project in VS Code. 
+- Werken met npm run dev
+- Werken met modules en `import`, `export`.
 
 <br>
 <br>
@@ -16,6 +19,16 @@
 <br>
 <br>
 <br>
+
+## Modern Web Development
+
+Introductie werken met [Vite](https://vite.dev) en modules.
+
+<br>
+<br>
+<br>
+
+
 
 ## Excalibur project
 

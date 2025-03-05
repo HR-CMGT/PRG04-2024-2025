@@ -1,77 +1,63 @@
 # Les 6 
 
-- Wisselen tussen schermen
+- Encapsulation
+- Wat is een klassendiagram
 - Timers en spawning
-- Health bar
-- UI class
 
-## Wisselen tussen schermen
+## Encapsulation
 
-- In de `game` class kan je `scenes` toevoegen in plaats van `Actors`.
-- Een `Scene` bevat `Actors` en je gameplay code.
-- De game kan wisselen tussen scenes.
-- Een Scene onthoudt de laatste state, dus als je heen en weer wisselt tussen twee scenes dan gaat de scene weer door op het vorige punt.
+-
 
 <br><br><br>
 
-## Scenes
+## Klassendiagram
 
-Als je een `Scene` aanmaakt dan voeg je de Actors op in de `onInitialize` functie. In de `onActivate` functie plaats je de code die uitgevoerd moet worden als er naar deze scene toe gesprongen wordt.
+Een klassendiagram is een visuele weergave van je project. Je kan OOP classes tekenen als blokjes, waarin je de methods en properties aangeeft, waarbij je ook aangeeft of deze properties public of private zijn.
 
-GAME.JS
+Tussen de classes teken je pijltjes die aangeven wat de relatie tussen de classes is:
+- Een class *heeft* een andere class : dit is *composition*
+- Een class *is* een subtype van een andere class : dit is *inheritance*
 
-```js
-export class Game extends Engine {
-    constructor(){
-        super() 
-        this.start(ResourceLoader).then(() => this.startGame())
-    }
-    startGame() {
-        this.add('level', new Level())
-        this.add('game-over', new GameOver())
-        this.goToScene('level')
-    }
-}
-```
-LEVEL.JS
+<br>
 
-```js
-export class Level extends Scene {
-    onInitialize(engine) {
-        this.add(new Enemy())
-        this.add(new Ship())
+```mermaid
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
     }
-    onActivate(ctx) {
-        console.log("reset het level")
+    class Fish{
+      -int sizeInFeet
+      -canEat()
     }
-    gameOver(){
-        this.engine.gotoScene('game-over')
+    class Zebra{
+      +bool is_wild
+      +run()
     }
-}
 ```
 
-### Expert tip: scene transitions
+<br>
 
-Je kan scenes laten outfaden / infaden:
+### Opdracht
 
-```js
-let transitions = {
-    in: new FadeInOut({ duration: 400, direction: 'in', color: Color.Black }),
-    out: new FadeInOut({ duration: 400, direction: 'out', color: Color.Black })
-}
-this.add('intro', { scene: new Intro(), transitions })
-this.add('level', { scene: new Level(), transitions })
-```
-
+Teken een klassendiagram voor jouw game.
 
 <br><br><br>
 
-## Spawning
+## Spawning en Timers
 
 Met spawning bedoelen we dat er tijdens de game nieuwe actors worden aangemaakt. Als je schiet dan spawned er een bullet. Meestal geef je de `x,y` waarden mee, dat is waar de bullet moet verschijnen:
 
 ```js
-export class Level extends Scene {
+export class ShooterGame extends Game {
     spawnBullet(x, y) {
         this.add(new Bullet(x, y))
     }
@@ -82,10 +68,6 @@ export class Bullet extends Actor {
     }
 }
 ```
-
-<br><br><br>
-
-## Timers
 
 Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate. Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
 
@@ -112,50 +94,3 @@ export class Game extends Engine {
 ```
 
 - [Zie Excalibur Timers](https://excaliburjs.com/docs/timers)
-
-
-<br><br><br>
-
-## Health bar
-
-Een `Actor` kan een achtergrondkleur hebben. Dit is handig voor een healthbar:
-
-```js
-export class Level extends Scene {
-    healthbar
-    onInitialize(engine) {
-        this.healthbar = new Actor({x: 10, y: 40, color: Color.Green, width: 200, height: 20})
-        this.healthbar.graphics.anchor = Vector.Zero
-        this.add(this.healthbar)
-    }
-    updateScore() {
-        this.healthbar.scale = new Vector(0.5, 1) // halve health
-    }
-}
-```
-
-<br><br><br>
-
-## UI Class
-
-Je kan al je UI elementen zoals health bars en tekstvelden het beste in een eigen `Scene` zetten. Als je game een camera heeft, dan kan je beter een `ScreenElement` gebruiken. Deze blijft altijd in beeld staan, ook als de camera beweegt.
-
-UI.JS 🧅
-
-```js
-export class UI extends ScreenElement {
-    onInitialize(engine) {
-        this.scoreText = new Label({...})
-        this.addChild(this.scoreText)
-    }
-}
-```
-LEVEL.JS
-```js
-export class Level extends Scene {
-    onInitialize(engine) {
-        this.ui = new UI()
-        this.add(this.ui)
-    }
-}
-```
