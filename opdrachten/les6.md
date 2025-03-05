@@ -8,23 +8,33 @@
 
 ## Encapsulation
 
-Je classes hebben properties zoals age, coins, lives, etc. Deze properties kan je afschermen voor andere classes door ze `private` te maken. Dit helpt om je code overzichtelijker en veiliger te maken. Een `private` property kan nooit door andere classes aangepast worden.
+Je classes hebben properties en methods. Deze kan je afschermen voor andere classes door ze `private` te maken. Dit helpt om je code overzichtelijker en veiliger te maken. Een `private` onderdeel kan nooit door andere classes aangepast worden.
 
 In javascript kan je `private` properties aangeven met een `#` symbool. 
 
+Als je vanuit een andere class toch een private waarde wil kunnen uitlezen, dan maak je daar een `get` functie voor, in dit voorbeeld zie je `getDetails()`.
+
 ```js
-class Cat {
-    
-    #name 
-    score
+class Car {
+  #brand;
+  #mileage;
 
-    constructor() {
-        this.score = 10
-        console.log(tihs.score)
+  constructor(brand) {
+    this.#brand = brand;
+    this.#mileage = 0; 
+  }
 
-        this.#name = "Chonkers"
-        console.log(this.#name)
-    }
+  getDetails() {
+    return `${this.#brand}, - ${this.#mileage} miles`;
+  }
+
+  drive() {
+    this.#increaseMileage(10)
+  }
+
+  #increaseMileage(distance) {
+    this.#mileage += distance;
+  }
 }
 ```
 
@@ -45,30 +55,30 @@ classDiagram
 ```
 
 Tussen de classes teken je pijltjes die aangeven wat de relatie tussen de classes is:
-- Een class *heeft* een andere class : dit is *composition*
-- Een class *is* een subtype van een andere class : dit is *inheritance*
+- Een class *heeft* een andere class, dit is *composition*: *Een Wombat IS een Animal*.
+- Een class *is* een subtype van een andere class, dit is *inheritance*: *Een Wombat HEEFT een Hoedje*.
 
 <br>
 
 ```mermaid
 classDiagram
-    Animal <|-- Duck
-    Animal <|-- Fish
-    Animal <|-- Zebra
+    Animal <|-- Eend
+    Animal <|-- Wombat
     Animal : +int age
     Animal : +String gender
     Animal: +isMammal()
     Animal: +mate()
-    class Duck{
+    Wombat --> Hoedje
+    class Eend{
       +String beakColor
       +swim()
       +quack()
     }
-    class Fish{
-      -int sizeInFeet
-      -canEat()
+    class Hoedje{
+      -number color
+      -number price
     }
-    class Zebra{
+    class Wombat{
       +bool is_wild
       +run()
     }
@@ -81,6 +91,8 @@ classDiagram
 Teken een klassendiagram voor jouw game.
 
 <br><br><br>
+
+# Excalibur
 
 ## Spawning en Timers
 
