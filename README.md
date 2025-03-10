@@ -43,7 +43,8 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 ## Excalibur documentatie
 
 - [Excalibur](https://excaliburjs.com)
-- [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html) en  [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
+- [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html)
+- [Important changes in V0.30](https://github.com/excaliburjs/Excalibur/releases/tag/v0.30.0) and [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
 - [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
 - [CMGT AI chatbot voor Excalibur](https://ai-assistent-mu.vercel.app) en [Prompting AI tips](./snippets/ai.md)
 
