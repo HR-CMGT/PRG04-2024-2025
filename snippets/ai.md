@@ -1,4 +1,30 @@
-## Prompting AI
+# Hulp vragen aan AI
+
+- [Chat met de repository](#chat-met-de-repository)
+- [CMGT chatbot](#cmgt-chatbot)
+- [Prompting](#prompting)
+
+<br><br><br>
+
+## Chat met de repository
+
+In [de github repository](https://github.com/HR-CMGT/PRG04-2024-2025/) kan je op het ***copilot*** icoontje klikken om een chatvenster te openen. Je kan dan specifieke vragen over de repository stellen. Zie dit screenshot voor een voorbeeld.
+
+![copilot](../images/ai-github-assistent.png)
+
+<br><br><br>
+
+## CMGT Chatbot
+
+Je kan aan de [CMGT chatbot](https://ai-assistent-mu.vercel.app) specifieke vragen stellen over ExcaliburJS. Zie dit screenshot voor een voorbeeld.
+
+![vercel](../images/ai-vercel-assistent.png)
+
+https://ai-assistent-mu.vercel.app
+
+<br><br><br>
+
+## Prompting
 
 Je kan AI tools zoals ChatGPT een beter resultaat laten geven als je in de prompt de stijl van programmeren aangeeft:
 

@@ -27,25 +27,26 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 <br>
 <br>
 
-## Startcode
+## Aan de slag
 
 - [Startproject Excalibur](https://github.com/HR-CMGT/prg4-startproject-2025)
 - [Chrome Devtool plugin](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
 - [Troubleshooting](./snippets/troubleshooting.md)
-- [🔥 Code snippets](./snippets/README.md)
+- [Code snippets](./snippets/README.md)
+- [Hulp vragen aan AI](./snippets/ai.md)
 
 ## Project publiceren
 
 - [Setup instructies voor github pages](./setup.md)
 - [Plaats je game op itch.io](https://itch.io/docs/creators/html5)
 - [Arcade Kast](https://github.com/HR-CMGT/arcade-game)
+- [Standalone Game met Electron](https://github.com/excaliburjs/template-electron)
 
 ## Excalibur documentatie
 
 - [Excalibur](https://excaliburjs.com)
 - [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html) en  [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
 - [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
-- [CMGT AI chatbot voor Excalibur](https://ai-assistent-mu.vercel.app) en [Prompting AI tips](./snippets/ai.md)
 
 <br><br><br>
 
