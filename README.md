@@ -22,7 +22,6 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 | 8 | Werken met npm build en publiceren naar github pages. Publiceren op CMGT Arcade Kast.  [Oefening](./opdrachten/les8.md), werken aan eindopdracht  |
 |  | 🚨 Deadline Week 5 : [inleveropdracht](./opdrachten/inleveropdracht.md)  |
 
-
 <br>
 <br>
 <br>

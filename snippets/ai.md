@@ -50,19 +50,3 @@ class Enemy extends Actor {
 }
 ```
 
-<br><br><br>
-
-## CMGPT Chatbot
-
-Deze chatbot kent de lesstof en begrijpt dat je in OOP in Excalibur wil programmeren.
-
-- [CMGT AI Chatbot](https://ai-assistent-mu.vercel.app)
-
-<br><br><br>
-
-## Links
-
-- Blackbox.ai Javascript
-- ChatGPT
-- Codeium
-- Copilot
