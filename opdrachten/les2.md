@@ -128,12 +128,16 @@ export class Game extends Engine {
 }
 ```
 
+## Voorbeeldcode
+
+- [Excalibur](https://excaliburjs.com)
+- [CodePen Voorbeeld](https://codepen.io/eerk/pen/pvoWeqM?editors=0010)
+- [Codesandbox Voorbeeld](https://codesandbox.io/s/excalibur-vite-testproject-olk4bu)
+
 <br><br><br>
 
 ## Links
 
-- [Setup instructies](https://github.com/HR-CMGT/PRG04-2022-2023/blob/main/setup.md).
 - [Excalibur](https://excaliburjs.com)
-- [Codesandbox Excalibur playground](https://codesandbox.io/s/excalibur-vite-testproject-olk4bu)
 - [Documentatie](https://excaliburjs.com/docs/text/).  
 - [Git troubleshooting](../snippets/git.md)

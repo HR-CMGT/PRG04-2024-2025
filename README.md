@@ -31,49 +31,25 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 - [Startproject Excalibur](https://github.com/HR-CMGT/prg4-startproject-2025)
 - [Chrome Devtool plugin](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
 - [Troubleshooting](./snippets/troubleshooting.md)
-- [Code snippets](./snippets/README.md)
-- [Hulp vragen aan AI](./snippets/ai.md)
+
+## Voorbeeldcode
+
+- [CodePen Voorbeeld](https://codepen.io/eerk/pen/pvoWeqM?editors=0010)
+- [Codesandbox Voorbeeld](https://codesandbox.io/p/sandbox/excalibur-vite-testproject-olk4bu)
 
 ## Project publiceren
 
 - [Setup instructies voor github pages](./setup.md)
-- [Plaats je game op itch.io](https://itch.io/docs/creators/html5)
 - [Arcade Kast](https://github.com/HR-CMGT/arcade-game)
-- [Standalone Game met Electron](https://github.com/excaliburjs/template-electron)
 
 ## Excalibur documentatie
 
 - [Excalibur](https://excaliburjs.com)
 - [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html)
-- [Important changes in V0.30](https://github.com/excaliburjs/Excalibur/releases/tag/v0.30.0) and [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
-- [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
+- [Code snippets](./snippets/README.md)
+- [Hulp vragen aan AI](./snippets/ai.md) of aan het [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
 
-<br><br><br>
+## Youtube
 
-## Excalibur Code Examples
-
-- [Voorbeeldproject op Codesandbox](https://codesandbox.io/p/sandbox/excalibur-vite-testproject-olk4bu)
-- [Excalibur Gallery](https://excaliburjs.com/gallery/), [Show and Tell](https://github.com/excaliburjs/Excalibur/discussions/categories/show-and-tell)
-- [Tenpa Examples](https://github.com/tenpaMk2/excalibur-examples), [Terrible Games](https://github.com/dcgw)
-
-## Youtube tutorials
-
-- [🔥 Drew Conley - Building games with Excalibur](https://www.youtube.com/@DrewConley/search?query=excalibur)
-- [Getting started with OOP in Excalibur - Erik Onarheim](https://www.youtube.com/watch?v=_srmco_KQeE) met [slides](https://slides.com/erikonarheim/build-your-first-game-in-javascript)
-
-## Assets
-
-- [itch.io assets](https://itch.io/game-assets), [Open Game Art](https://opengameart.org), [Kenney Assets](https://www.kenney.nl/assets)
-- [Create Game Sounds](https://sfxr.me) en [AI Sound Effects](https://elevenlabs.io/sound-effects)
-- [Sprite Sheet Maker](https://www.finalparsec.com/tools/sprite_sheet_maker)
-- [AI Pixel Art generator](https://aipixelartgenerator.com/) 
-- [Pixel fonts](https://www.dafont.com/bitmap.php)
-
-## Links
-
-- [Javascript Game Development](https://gamedevjs.com) en [Newsletter](https://gamedevjsweekly.com)
-- [Javascript Game Design Patterns](https://designpatternsgame.com/patterns)
-- [Game Programming Patterns](https://gameprogrammingpatterns.com)
-- [MDN Game Development](https://developer.mozilla.org/en-US/docs/Games)
-- [MDN Object Oriented Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
-
+- [Building games with Excalibur](https://www.youtube.com/@DrewConley/search?query=excalibur)
+- [OOP in Excalibur](https://www.youtube.com/watch?v=_srmco_KQeE) met [slides](https://slides.com/erikonarheim/build-your-first-game-in-javascript)

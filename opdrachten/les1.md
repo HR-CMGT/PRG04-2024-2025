@@ -46,11 +46,9 @@ Introductie werken met [Vite](https://vite.dev) en modules.
 <br>
 <br>
 
-## Werken met import en export
+## Werken met import
 
 In Vite projecten werk je met modules. Hierdoor kan je je javascript code opdelen in losse bestanden. Deze bestanden kan je met het `import` statement inladen in je project.
-
-Dit geldt zowel voor het werken met libraries zoals Excalibur, maar ook voor je eigen code. Je kan alleen code importeren waar een `export` statement is gebruikt.
 
 ```js
 import { Game } from "excalibur"
@@ -59,22 +57,6 @@ class Pong extends Game {
     // de Game code komt uit de excalibur library
 }
 ```
-
-Je kan ook code uit je eigen JS files importeren, dan moet je opletten dat je ook `export` gebruikt.
-
-```js
-export class Knakworst {
-    constructor() {
-        console.log("the worst case")
-    }
-}
-```
-```js
-import { Knakworst } from "knakworst.js"
-
-let k = new Kwakworst()
-```
-
 
 <br>
 <br>
@@ -95,7 +77,18 @@ let k = new Kwakworst()
 
 ## Voorbereiding inleveropdracht
 
-[Kies een van de templates voor je eindproject](https://github.com/HR-CMGT/PRG04-2022-2023/blob/main/opdrachten/inleveropdracht.md)
+[Kies een van de templates voor je eindproject](https://github.com/HR-CMGT/PRG04-2024-2025/blob/main/opdrachten/inleveropdracht.md)
+
+<br>
+<br>
+<br>
+
+## Voorbeeldcode
+
+- [Excalibur](https://excaliburjs.com)
+- [CodePen Voorbeeld](https://codepen.io/eerk/pen/pvoWeqM?editors=0010)
+- [Codesandbox Voorbeeld](https://codesandbox.io/s/excalibur-vite-testproject-olk4bu)
+
 
 <br>
 <br>
@@ -106,17 +99,3 @@ let k = new Kwakworst()
 - Open "File > Preferences > Settings"
 - Search "npm script"
 - Toggle "Npm: Enable Script Explorer"
-
-
-<br>
-<br>
-<br>
-
-## Links
-
-- [Game Art](https://opengameart.org) en [Kenney](https://www.kenney.nl/assets)
-- [Excalibur](https://excaliburjs.com)
-- [Codesandbox Excalibur playground](https://codesandbox.io/s/excalibur-vite-testproject-olk4bu)
-- [Documentatie](https://excaliburjs.com/docs/text/).  
-- [Git troubleshooting](../snippets/git.md)
-

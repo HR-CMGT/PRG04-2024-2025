@@ -33,6 +33,28 @@
 - [Type Checking](./typechecking.md)
 - [Een excalibur project opzetten zonder het startproject](./snippets/advanced.md)
 
+## Assets
+
+- [itch.io assets](https://itch.io/game-assets), [Open Game Art](https://opengameart.org), [Kenney Assets](https://www.kenney.nl/assets)
+- [Create Game Sounds](https://sfxr.me) en [AI Sound Effects](https://elevenlabs.io/sound-effects)
+- [Sprite Sheet Maker](https://www.finalparsec.com/tools/sprite_sheet_maker)
+- [AI Pixel Art generator](https://aipixelartgenerator.com/) 
+- [Pixel fonts](https://www.dafont.com/bitmap.php)
+
+## Links
+
+- [Plaats je game op itch.io](https://itch.io/docs/creators/html5)
+- [Standalone Game met Electron](https://github.com/excaliburjs/template-electron)
+- [Important changes in V0.30](https://github.com/excaliburjs/Excalibur/releases/tag/v0.30.0) and [V0.29 notes](https://github.com/excaliburjs/Excalibur/releases/tag/v0.29.0)
+- [Excalibur Gallery](https://excaliburjs.com/gallery/), [Show and Tell](https://github.com/excaliburjs/Excalibur/discussions/categories/show-and-tell)
+- [Tenpa Examples](https://github.com/tenpaMk2/excalibur-examples), [Terrible Games](https://github.com/dcgw)
+- [Javascript Game Development](https://gamedevjs.com) en [Newsletter](https://gamedevjsweekly.com)
+- [Javascript Game Design Patterns](https://designpatternsgame.com/patterns)
+- [Game Programming Patterns](https://gameprogrammingpatterns.com)
+- [MDN Game Development](https://developer.mozilla.org/en-US/docs/Games)
+- [MDN Object Oriented Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
+
+
 <br><br><br>
 
 

@@ -285,6 +285,5 @@ class Game extends Engine {
 
 ## Links
 
-- [Setup instructies](https://github.com/HR-CMGT/PRG04-2022-2023/blob/main/setup.md).
 - [Excalibur](https://excaliburjs.com)
 - [Documentatie](https://excaliburjs.com/docs/text/)
