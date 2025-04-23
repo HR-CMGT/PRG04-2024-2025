@@ -103,7 +103,7 @@ export class NameOfTheClass extends Actor {
 In het volgende voorbeeld maken we een `SuperMario` Actor class.
 
 ```js
-import { Actor } from "excalibur"
+import { Actor, Vector } from "excalibur"
 import { Resources } from './resources'
 
 export class SuperMario extends Actor {
