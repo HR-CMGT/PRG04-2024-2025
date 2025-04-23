@@ -32,6 +32,9 @@
 - [Online Multiplayer met Socket.IO](https://socket.io) of [Lance](https://lance-gg.github.io)
 - [Type Checking](./typechecking.md)
 - [Een excalibur project opzetten zonder het startproject](./snippets/advanced.md)
+- [Javascript games spelen op een handheld emulator](https://www.youtube.com/watch?v=osJsBRPSrM4)
+
+![retro](./retro-handheld.png)
 
 ## Assets
 
