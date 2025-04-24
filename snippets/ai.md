@@ -1,6 +1,7 @@
 # Hulp vragen aan AI
 
 - [Prompting](#prompting)
+- [Resultaat evalueren](#resultaat-evalueren)
 - [Prompt Instructions in VS Code](#prompting)
 - [Chat met Github Repositories](#chat-met-de-repository)
 - [CMGT chatbot](#cmgt-chatbot)
@@ -37,7 +38,25 @@ class Enemy extends Actor {
 
 <br><br><br>
 
-## Promp Instructions in VS Code
+## Resultaat evalueren
+
+Check altijd of het resultaat van je prompt overeenkomt met de instructies. 
+
+🚨 *Hieronder zie je een voorbeeld van Excalibur code die niet overeenkomt met de lessen, omdat er geen instructies zijn meegegeven*
+
+```js
+const engine = new ex.Engine({
+  width: 600,
+  height: 400,
+});
+
+const actor1 = new ex.Actor({ width: 50, height: 50 });
+engine.add(actor1);
+```
+
+<br><br><br>
+
+## Prompt Instructions in VS Code
 
 Je kan in je code editor automatisch prompt instructies meegeven:
 
@@ -52,7 +71,7 @@ Je kan in je code editor automatisch prompt instructies meegeven:
 
 Je kan in [de PRG4 repository](https://github.com/HR-CMGT/PRG04-2024-2025/) en in de officiele [Excalibur Repository](https://github.com/excaliburjs/Excalibur) op het ***copilot*** icoontje klikken om een chatvenster te openen. Je kan dan specifieke vragen over de repository stellen. 
 
-> ⚠️ *Let op dat je hier nog steeds moet meegeven dat je in Object Oriented Programming stijl werkt zonder de "ex." namespace.*
+> ⚠️ *Let op dat je hier nog steeds instructies moet meegeven, minimaal dat je met Object Oriented Programming classes werkt, zonder de "ex." namespace.*
 
 ![copilot](../images/ai-github-assistent.png)
 
