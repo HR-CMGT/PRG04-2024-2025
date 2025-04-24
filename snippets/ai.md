@@ -20,17 +20,25 @@ Please use the following code examples to format classes in the game. I use vite
 
 import {Engine,Actor,Vector} from "excalibur";
 import {Resources} from "./resources.js";
-import {SuperMario} from "./supermario.js";
+import {Player} from "./player.js";
+import {Enemy} from "./enemy.js";
 
 export class Game extends Engine {
+    enemy
+    player
     startGame() {
-        const mario = new SuperMario()
-        this.add(mario)
+        this.player = new Player()
+        this.add(this.player)
+        
+        this.enemy = new Enemy()
+        this.add(this.enemy)
     }
 }
 
-class Enemy extends Actor {
-    onInitialize(){
+export class Enemy extends Actor {
+    constructor(){
+        super({width:100, height:100})
+        this.pos = new Vector(100,100)
         this.vel = new Vector(5,0)
     }
 }
