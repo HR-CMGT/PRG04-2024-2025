@@ -19,7 +19,6 @@ I am using the excaliburjs library at https://github.com/excaliburjs/Excalibur a
 Please use the following code examples to format classes in the game. I use vite to test and build the game. I do not use the global "ex." namespace for excalibur.
 
 import {Engine,Actor,Vector} from "excalibur";
-import {Resources} from "./resources.js";
 import {Player} from "./player.js";
 import {Enemy} from "./enemy.js";
 
@@ -29,7 +28,7 @@ export class Game extends Engine {
     startGame() {
         this.player = new Player()
         this.add(this.player)
-        
+
         this.enemy = new Enemy()
         this.add(this.enemy)
     }
@@ -48,7 +47,9 @@ export class Enemy extends Actor {
 
 ## Resultaat evalueren
 
-Check altijd of het resultaat van je prompt overeenkomt met de instructies. 
+Vraag ook om uitleg van gegenereerde code, zodat je zelf beter begrijpt.
+
+Check of gegenereerde code overeenkomt met de instructies. 
 
 🚨 *Hieronder zie je een voorbeeld van Excalibur code die niet overeenkomt met de lessen, omdat er geen instructies zijn meegegeven*
 
