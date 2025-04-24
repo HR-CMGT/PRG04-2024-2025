@@ -1,14 +1,58 @@
 # Hulp vragen aan AI
 
-- [Chat met de repository](#chat-met-de-repository)
-- [CMGT chatbot](#cmgt-chatbot)
 - [Prompting](#prompting)
+- [Prompt Instructions in VS Code](#prompting)
+- [Chat met Github Repositories](#chat-met-de-repository)
+- [CMGT chatbot](#cmgt-chatbot)
 
 <br><br><br>
 
-## Chat met de repository
+## Prompting
 
-In [de github repository](https://github.com/HR-CMGT/PRG04-2024-2025/) kan je op het ***copilot*** icoontje klikken om een chatvenster te openen. Je kan dan specifieke vragen over de repository stellen. Zie dit screenshot voor een voorbeeld.
+Bij het doen van een prompt in ChatGPT, Claude, Blackbox, etc. over Excalibur moet je goede instructies meegeven, omdat het antwoord anders niet voldoende overeenkomt met de werkwijze uit de lessen.
+
+Voordat je gaat prompten, kan je deze minimale instructies sturen:
+
+```
+I am using the excaliburjs library at https://github.com/excaliburjs/Excalibur and object oriented programming, to create a game.
+Please use the following code examples to format classes in the game. I use vite to test and build the game. I do not use the global "ex." namespace for excalibur.
+
+import {Engine,Actor,Vector} from "excalibur";
+import {Resources} from "./resources.js";
+import {SuperMario} from "./supermario.js";
+
+export class Game extends Engine {
+    startGame() {
+        const mario = new SuperMario()
+        this.add(mario)
+    }
+}
+
+class Enemy extends Actor {
+    onInitialize(){
+        this.vel = new Vector(5,0)
+    }
+}
+```
+
+<br><br><br>
+
+## Promp Instructions in VS Code
+
+Je kan in je code editor automatisch prompt instructies meegeven:
+
+- Zet Copilot aan (gratis in VS Code)
+- Zet de "instructions" optie aan *(settings > copilot > instructions > use .copilot-review-instructions.md file)*
+- Plaats [deze instructions file](./snippets/.copilot-review-instructions.md) in de root van je project.
+
+
+<br><br><br>
+
+## Chat met Github Repositories
+
+Je kan in [de PRG4 repository](https://github.com/HR-CMGT/PRG04-2024-2025/) en in de officiele [Excalibur Repository](https://github.com/excaliburjs/Excalibur) op het ***copilot*** icoontje klikken om een chatvenster te openen. Je kan dan specifieke vragen over de repository stellen. 
+
+> ⚠️ *Let op dat je hier nog steeds moet meegeven dat je in Object Oriented Programming stijl werkt zonder de "ex." namespace.*
 
 ![copilot](../images/ai-github-assistent.png)
 
@@ -16,37 +60,11 @@ In [de github repository](https://github.com/HR-CMGT/PRG04-2024-2025/) kan je op
 
 ## CMGT Chatbot
 
-Je kan aan de [CMGT chatbot](https://ai-assistent-mu.vercel.app) specifieke vragen stellen over ExcaliburJS. Zie dit screenshot voor een voorbeeld.
+De [CMGT chatbot](https://ai-assistent-mu.vercel.app) heeft de instructies over de lesstof al ingebouwd.
 
 ![vercel](../images/ai-vercel-assistent.png)
 
 https://ai-assistent-mu.vercel.app
 
 <br><br><br>
-
-## Prompting
-
-Je kan AI tools zoals ChatGPT een beter resultaat laten geven als je in de prompt de stijl van programmeren aangeeft:
-
-```js
-"Can you use this excaliburjs library to create a mario player class in OOP style in javascript? https://github.com/excaliburjs/Excalibur. You can use import { Actor } from "excalibur" to import the right classes from the library."
-```
-
-Je krijgt meestal niet meteen het gewenste resultaat. Bekijk het antwoord en vraag door om tot het juiste resultaat te komen dat voldoet aan de lesstof. Hieronder een voorbeeld:
-
-> *Create a enemy class with a speed of 5*
-```js
-class Enemy {
-    speed = 5
-}
-```
-> *Thanks! That's cool but the enemy is not using excalibur, and it's not actually moving*
-
-```js
-class Enemy extends Actor {
-    onInitialize(){
-        this.vel = new Vector(5,0)
-    }
-}
-```
 

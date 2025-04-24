@@ -49,7 +49,7 @@ In dit vak bouwen we Object Oriented  games met [excalibur](https://excaliburjs.
 - [Excalibur API documentation](https://excaliburjs.com/docs/api/edge/index.html)
 - [Excalibur forum](https://github.com/excaliburjs/Excalibur/discussions)
 
-## AI assistent
+## Werken met AI
 
 - [Hulp vragen aan AI](./snippets/ai.md)  
 
