@@ -123,7 +123,7 @@ class ActionHenk extends Actor {
     }
 
     hitSomething(event) {
-        console.log(`we hit something! ${event.other}`)
+        console.log(`we hit something! ${event.other.owner}`)
     }
 }
 ```
@@ -139,10 +139,10 @@ import { Tree } from "./tree.js"
 class Car extends Actor {
 
     hitSomething(event) {
-        if(event.other instanceof Tree) {
+        if(event.other.owner instanceof Tree) {
              console.log("the car hits the tree")
-             this.kill()           // remove the car
-             event.other.kill()    // remove the tree
+             this.kill()                    // remove the car
+             event.other.owner.kill()       // remove the tree
         }
     }
 }
@@ -169,11 +169,11 @@ this.pos.y =  Math.random() * 600
 
 ## Collision toevoegen
 
-- Voeg een collision handler aan de player character toe. Als er een collision is, verwijder je het object waar je tegenaan botst via `event.other.kill()`. 
+- Voeg een collision handler aan de player character toe. Als er een collision is, verwijder je het object waar je tegenaan botst via `event.other.owner.kill()`. 
 
 ## Pickups and enemies
 
-Maak een nieuwe class voor een Actor waar je tegenaan kan botsen, bv. een coin. *Een coin geeft punten, maar een enemy kost health*. Zowel de pickup als enemy verwijder je uit de game na een collision. met `event.other.kill()` Als je health 0 is verwijder je de player met `this.kill()`.
+Maak een nieuwe class voor een Actor waar je tegenaan kan botsen, bv. een coin. *Een coin geeft punten, maar een enemy kost health*. Zowel de pickup als enemy verwijder je uit de game na een collision. met `event.other.owner.kill()` Als je health 0 is verwijder je de player met `this.kill()`.
 
 ```js
 class Player extends Actor {

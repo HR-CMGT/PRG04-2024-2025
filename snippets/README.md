@@ -24,6 +24,7 @@
 - [Een auto besturen](./movedirection.md)
 - [Actors zoeken in een Scene](#actors-zoeken)
 - [Een karakter met verschillende wapens](#wapens)
+- [Particles](./particles.md)
 - [Random tint](#random-tint)
 - [JSON laden](#json-laden)
 - [Afstanden en vectoren](./vector.md)
@@ -142,7 +143,7 @@ export class Ship extends Actor {
     }
 
     hitSomething(event){
-        if (event.other instanceof Enemey) {
+        if (event.other.owner instanceof Enemey) {
             console.log('hit enemy')
         }
     }

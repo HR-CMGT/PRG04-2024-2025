@@ -115,8 +115,8 @@ export class Shark extends Actor {
     }
 
     onCollide(event) {
-       if(event.other instanceof Fish) {
-           event.other.hitByShark()
+       if(event.other.owner instanceof Fish) {
+           event.other.owner.hitByShark()
        }
     }
 }
@@ -166,7 +166,7 @@ PLAYER.JS
 class Player extends Actor {
     
     hitSomething(event){
-        if(event.other instanceof Coin) {
+        if(event.other.owner instanceof Coin) {
             this.scene.engine.ui.showScore()
         }
     }
