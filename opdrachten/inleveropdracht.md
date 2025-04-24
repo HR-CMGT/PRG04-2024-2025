@@ -1,9 +1,9 @@
 # Inleveropdracht
 
-In week 1 kies je een van de minigame templates uit de cursushandleiding. Je gaat hier tijdens de lessen en in je zelfstudietijd aan werken. 
+In week 1 kies je een van de game templates uit de cursushandleiding. Je gaat hier tijdens de lessen en in je zelfstudietijd aan werken. 
 
 - Alle templates werken met het Excalibur Startproject van dit vak.
-- Je werkt aan alle criteria van de beoordeling, waaronder de criteria van je gekozen template.
+- Je werkt aan alle criteria van de beoordeling.
 - Bij het inleveren geef je jezelf punten volgens de criteria uit de cursushandleiding.
 - Je gebruikt geen tilemaps, spritesheets en geen externe libraries of plugins.
 
@@ -12,6 +12,8 @@ In week 1 kies je een van de minigame templates uit de cursushandleiding. Je gaa
 <br>
 
 # Templates
+
+De beoordelingscriteria van de templates vind je in de cursushandleiding
 
 - Endless Runner
 - Space Shooter
@@ -25,23 +27,24 @@ In week 1 kies je een van de minigame templates uit de cursushandleiding. Je gaa
 
 ## Schermafmeting
 
-In `game.js` geef je een schermafmeting aan in 16/9 verhouding. Als je game heel groot is moeten je afbeeldingen ook groter / scherper zijn. Een kleine game heeft vaak een betere performance! Je kan de game schalen naar het scherm van de speler met `displayMode: DisplayMode.FitScreen`. Een aantal geschikte afmetingen:
+In `game.js` geef je een schermafmeting aan. Als je game groot is moeten je afbeeldingen ook groter zijn. Je kan een kleine game omhoog schalen naar het scherm van de speler met `displayMode: DisplayMode.FitScreen` of `displayMode: DisplayMode.FitContainer`
 
+> ⚠️ Een kleinere resolutie geeft een betere performance / framerate!
+
+***widescreen 16/9***
+- 640 × 360
 - 800 x 450
 - 1280 x 720
-- 1600 x 900
-- 1920 x 1080
+
+***retro 4/3***
+- 512 × 384
+- 640 × 480
+- 800 × 600
 
 <br>
 <br>
 <br>
 
-## Game Assets
+## Startproject
 
-- [Excalibur startproject](https://github.com/HR-CMGT/prg4-startproject-2025), gebruik dit als basis voor je game.
-- [Open Game Art](https://opengameart.org) en [Kenney Assets](https://www.kenney.nl/assets)
-- Midjourney, Dall-E, Stable Diffusion
-- [Font Loader](https://fontfaceobserver.com)
-- [Game Icons](https://game-icons.net)
-- [Game Sounds](https://www.zapsplat.com) en [Game Music](https://www.bensound.com)
-- [Generate your own game Sounds](https://sfxr.me), [FreeSound](https://freesound.org)
+- [Excalibur startproject](https://github.com/HR-CMGT/prg4-startproject-2025)
