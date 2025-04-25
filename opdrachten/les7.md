@@ -2,6 +2,15 @@
 
 ## Physics
 
+- [Demo super mario](https://hr-cmgt.github.io/PRG04-2024-2025-finished/physics-mario/docs/)
+- [Demo Bouncing Ball](https://hr-cmgt.github.io/PRG04-2024-2025-finished/physics-synthesizer/docs/)
+- [Demo soorten colliders](https://hr-cmgt.github.io/PRG04-2024-2025-finished/physics-colliders/docs/)
+
+<br><br><br>
+
+
+## Physics aan zetten
+
 In de game kan je `Realistic Physics` of `Arcade Physics` physics aanzetten. 
 
 - "Arcade" style physics which is good for basic collision detection for non-rotated rectangular areas. Example: platformers, tile based games, top down, etc

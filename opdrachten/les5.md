@@ -100,7 +100,7 @@ class Game extends Engine {
 <Br>
 <Br>
 
-## Communicatie tussen meerdere classes
+## Communicatie tussen classes onderling
 
 ### Collision
 

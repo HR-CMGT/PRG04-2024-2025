@@ -39,6 +39,14 @@ Nu wordt je project live gezet en kan je het online spelen!
 
 <br><br><br>
 
+## Publiceren op itch.io
+
+- https://itch.io/developers
+- https://itch.io/docs/creators/html5
+
+<br><br><br>
+
+
 ### Troubleshooting
 
 - Als je project een `dist` folder heeft gemaakt in plaats van een `docs` folder, dan moet je de `outDir` aanpassen via `package.json`.

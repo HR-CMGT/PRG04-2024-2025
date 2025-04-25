@@ -119,7 +119,7 @@ In de volgende oefening plaatsen we kippen op een boomstam om te oefenen met inh
 
 ### Composition
 
-- Om `Actors` toe te voegen aan de `Game` (of aan een `Scene`) gebruik je `this.add()`.
+- Om `Actors` toe te voegen aan de `Game` gebruik je `this.add()`.
 - Om `Actors` toe te voegen aan een andere `Actor` gebruik je `this.addChild()`.
 
 <br>
