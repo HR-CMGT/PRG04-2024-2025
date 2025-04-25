@@ -48,7 +48,7 @@ Introductie werken met [Vite](https://vite.dev) en modules.
 
 ## Werken met import
 
-In Vite projecten werk je met modules. Hierdoor kan je je javascript code opdelen in losse bestanden. Deze bestanden kan je met het `import` statement inladen in je project.
+In Vite projecten werk je met modules. Hierdoor kan je je javascript code opdelen in losse bestanden, vergelijkbaar met `include` of `require` in php. In JavaScript gebruikje het `import` statement om andere bestanden in te laden in je project.
 
 ```js
 import { Game } from "excalibur"
