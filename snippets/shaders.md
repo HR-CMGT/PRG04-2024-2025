@@ -11,6 +11,10 @@ Shader code is geschreven in de GLSL taal. Shader code moet je als string in je 
 - [The book of shaders](https://thebookofshaders.com/)
 - [Vraag ChatGPT om een shader te schrijven](https://www.chatgpt.com)
 
+<br>
+
+![Shader](./shader.png)<br>
+[🌱 Shader demo: water en wavy plants](https://hr-cmgt.github.io/PRG04-2024-2025-finished/aquarium/docs/)
 
 <br><br><br>
 
@@ -74,18 +78,30 @@ export class Plant extends Actor {
     }
 
     onInitialize(engine){
-        const mySimpleMaterial = engine.graphicsContext.createMaterial({
-            name: 'simple-color',
+        const wavyMaterial = engine.graphicsContext.createMaterial({
+            name: 'wavy-material',
             fragmentSource: `#version 300 es
                 precision mediump float;
-                out vec4 color;
+
+                in vec2 v_uv;
+                uniform float u_time_ms;
+                uniform float u_wave_offset; // new offset!
+                uniform sampler2D u_graphic;
+                out vec4 fragColor;
+
                 void main() {
-                    // Set the color to a solid green (R, G, B, A)
-                    color = vec4(0.0, 1.0, 0.0, 1.0);
+                    float time = u_time_ms / 1000.0;
+
+                    // Add per-actor offset to wave phase
+                    float wave = sin((v_uv.y + time + u_wave_offset) * 10.0) * 0.02;
+                    vec2 uv = v_uv + vec2(wave, 0.0);
+
+                    vec4 color = texture(u_graphic, uv);
+                    fragColor = color * color.a; // premultiplied alpha
                 }`
         });
 
-        this.graphics.material = mySimpleMaterial;
+        this.graphics.material = wavyMaterial;
     }
 }
 
