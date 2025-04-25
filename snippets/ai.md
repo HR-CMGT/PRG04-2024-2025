@@ -71,7 +71,7 @@ Je kan in je code editor automatisch prompt instructies meegeven:
 
 - Zet Copilot aan (gratis in VS Code)
 - Zet de "instructions" optie aan *(settings > copilot > instructions > use .copilot-review-instructions.md file)*
-- Plaats [deze instructions file](./snippets/.copilot-review-instructions.md) in de root van je project.
+- Plaats [deze instructions file](./.copilot-review-instructions.md) in de root van je project.
 
 
 <br><br><br>

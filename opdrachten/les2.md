@@ -1,21 +1,21 @@
 # Les 2
 
-Werken met classes en instances.
+Werken met classes en instances. Zie ook de presentatie.
 
-- Klassikaal voorbeeld: Pixel Aquarium
-- Individuele opdracht: Whack a mole
-- Code voorbeeld
+- Oefenen met classes
+- Expert opdracht: Whack a mole
+- Links
 
 
 <br><br><Br>
 
-## Klassikaal voorbeeld: Pixel Aquarium
+## Oefenen met classes
 
-Gezamenlijk oefenen met het aanmaken van een individuele `Actor` class. Begin met onderstaande startcode
+Je kan beginnen met de code uit het startproject:
 
 ```js
 import {Engine,Actor,Vector} from "excalibur";
-import {Resources} from "./resources.js";
+import {Resources,ResourceLoader} from "./resources.js";
 
 export class Game extends Engine {
 
@@ -25,7 +25,6 @@ export class Game extends Engine {
     }
 
     startGame() {
-        console.log("start de game!")
         const fish = new Actor()
         this.add(fish)
         fish.graphics.use(Resources.Fish.toSprite())
@@ -35,98 +34,70 @@ export class Game extends Engine {
 }
 ```
 
-- Gebruik een `for` loop om 100 vissen te spawnen.
-- Maak de snelheid en positie van elke vis random met `Math.random()`
+<br>
 
+### Een Fish class aanmaken
 
-<br><br><br>
-
-## Individuele opdracht: Whack a Mole
-
-*Code uit één file omzetten naar Object Oriented Code*
-
-Gebruik de volgende code: [Whack a Mole](https://github.com/HR-CMGT/PRG04-whack-a-mole). 
-De code van dit spelletje staat allemaal in `src/game.js`. 
-Wanneer je deze repository cloned of gebruik maakt van het [startproject](https://github.com/HR-CMGT/prg4-startproject-2024), voer dan nog het volgende uit in de terminal
-```bash
-npm install
-npm run dev
-```
-
-Samen met een medestudent:
-- bekijk je deze code en gaan jullie regel-voor-regel na wat de code doet.
-- Bedenk welke class(es) je nodig hebt om de code op te delen in losse stukken.
-- Bepaal wat de verantwoordelijkheid van deze class wordt.
-- Schrijf hiervoor eerst de basis van de class
-
-```javascript
-import {Actor} from "excalibur";
-import {Resources} from "./resources.js";
-
-export class NameOfTheClass extends Actor {
-    constructor() {
-        super();
-    }
-
-    onInitialize(engine) {
-        
-    }
-}
-```
-
-- Gebruik commentaar om aan te geven welk gedrag en welke eigenschappen de class moet gaan krijgen.
-
-```javascript
-import {Actor} from "excalibur";
-import {Resources} from "./resources.js";
-
-export class NameOfTheClass extends Actor {
-
-    // the class needs speed
-    constructor() {
-        super();
-    }
-
-    onInitialize(engine) {
-        // the car needs to use a sprite
-    }
-
-    // the class needs to move
-}
-```
-- Werk nu samen de class uit en maak het spelletje werkend. 
-
-<br><br><br>
-
-## Code voorbeeld
-
-In het volgende voorbeeld maken we een `SuperMario` Actor class.
+- Maak een `Fish` class waarin de eigenschappen van de fish geplaatst worden.
+- Let op dat de code voor de afbeelding, positie en snelheid van de fish nu niet meer in Game staan.
+- Maak de snelheid en positie van de Fish random met `Math.random()`
 
 ```js
-import { Actor, Vector } from "excalibur"
-import { Resources } from './resources'
-
-export class SuperMario extends Actor {
-    onInitialize(engine) {
-        this.graphics.use(Resources.SuperMario.toSprite())
-        this.pos = new Vector(400, 300)
-        this.vel = new Vector(-10,0)
+import {Actor,Vector} from "excalibur";
+import {Resources} from "./resources.js";
+export class Fish extends Actor {
+    constructor(){
+        console.log("I am a fish")
+    }
+    onInitialize(engine){
+        // verplaats de fish eigenschappen van Game.js naar Fish.js
+        // afbeelding, positie, snelheid
+        // let op het gebruik van "this"
     }
 }
 ```
-Deze kan je in de game laden met
-```js
-import {Engine,Actor,Vector} from "excalibur";
-import {Resources} from "./resources.js";
-import {SuperMario} from "./supermario.js";
 
-export class Game extends Engine {
+<br>
+
+### De fish toevoegen aan je game
+
+- Voeg een instance van de fish class toe aan Game
+- Gebruik een `for` loop om 10 vissen toe te voegen aan Game.
+
+```js
+import { Fish } from "fish.js"
+
+class Game extends Engine {
     startGame() {
-        const mario = new SuperMario()
-        this.add(mario)
+        const fish = new Fish()
+        this.add(fish)
     }
 }
 ```
+
+<br>
+
+### Een Shark class toevoegen
+
+- Maak een Shark class
+- De shark zwemt van links naar rechts
+- Voeg de shark ook toe aan je game
+
+<br>
+
+### Bubbles toevoegen
+
+- Maak een Bubble class
+- De bubble beweegt van onder naar boven, vanaf een random x positie
+- Voeg 10 bubbles toe aan de Game
+
+<br><br><br>
+
+## Expert opdracht: whack a mole
+
+- [Maak het spelletje "whack a mole"](./les2-mole.md)
+
+<br><br><br>
 
 ## Voorbeeldcode
 
@@ -139,5 +110,5 @@ export class Game extends Engine {
 ## Links
 
 - [Excalibur](https://excaliburjs.com)
-- [Documentatie](https://excaliburjs.com/docs/text/).  
+- [Documentatie](https://excaliburjs.com/docs/text/)
 - [Git troubleshooting](../snippets/git.md)
