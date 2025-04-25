@@ -3,9 +3,12 @@
 - Lifecycle
 - Besturing
 - Collision
-- Oefening
-- Improving the game
-- Fonts en geluid
+- Pickups and enemies
+- Improvements
+    - Score veld tonen
+    - Binnen beeld blijven
+    - Camera
+    - Geluid en fonts
 
 
 
@@ -106,7 +109,9 @@ export class Car extends Actor {
 
 ## Collision
 
-Om te weten of een actor een andere actor raakt kan je het `collisionstart` event gebruiken. 🚨 Om een "collision" event te kunnen afvuren moet een Actor altijd een `width` en `height` hebben.
+Om te weten of een actor een andere actor raakt kan je het `collisionstart` event gebruiken. 
+
+> *🚨 Om een "collision" event te kunnen afvuren moet een Actor altijd een `width` en `height` hebben.*
 
 ```js
 class ActionHenk extends Actor {
@@ -157,29 +162,26 @@ class Car extends Actor {
 
 - Voeg 10 of meer instances van een Actor class toe aan je game met een `for` loop, bv. `new Fish()`.
 - De actors krijgen een random positie. Laat de actors door het beeld bewegen. Als ze uit de viewport gaan, verschijnen ze weer aan de linkerkant.
+- Bestuur de Shark uit les 2 met WASD / Cursorkeys, dit is nu je Player character.
+- Voeg een collision handler aan de player character toe. Als er een collision is, verwijder je het object waar je tegenaan botst via `event.other.owner.kill()`. 
 
+#### Voorbeeld random positie
 ```js
-this.pos.x =  Math.random() * 800
-this.pos.y =  Math.random() * 600
+this.pos = new Vector(Math.random() * 800, Math.random() * 600)
 ```
 
-## Besturing toevoegen
-
-- Maak een player character Actor aan die je met WASD/Cursorkeys kan laten bewegen door het scherm
-
-## Collision toevoegen
-
-- Voeg een collision handler aan de player character toe. Als er een collision is, verwijder je het object waar je tegenaan botst via `event.other.owner.kill()`. 
+<br><br><br>
 
 ## Pickups and enemies
 
-Maak een nieuwe class voor een Actor waar je tegenaan kan botsen, bv. een coin. *Een coin geeft punten, maar een enemy kost health*. Zowel de pickup als enemy verwijder je uit de game na een collision. met `event.other.owner.kill()` Als je health 0 is verwijder je de player met `this.kill()`.
+Maak een nieuwe class voor een Actor met als doel dat de haai deze moet ontwijken (bv. een mijn). Geef de haai punten als hij visjes opeet, en verminder de health als hij een mijn raakt. Als de health op 0 komt kan je `this.kill()` uitvoeren, zodat de shark uit de game wordt verwijderd.
 
 ```js
-class Player extends Actor {
+class Shark extends Actor {
     onInitialize(){
         this.score = 0
         this.health = 100
+        this.on(...)
     }
 
     hitSomething(event) {
@@ -188,15 +190,45 @@ class Player extends Actor {
 }
 ```
 
+
+
 <br><br><br>
 
 # Improvements
 
-Als je tijd over hebt kan je naar eigen inzicht een of meer van de onderstaande verbeteringen toevoegen.
+- Score veld tonen
+- Binnen beeld blijven
+- Camera follow
+- Geluid en fonts laden
 
-## Geluidjes
+<br><br><br>
 
-Een pickup of botsing met een vijand heeft meer impact als het geluid maakt. Zie hieronder voor het laden van geluid.
+
+## Score veld tonen
+
+```js
+import { Label, Font, FontUnit, Color, Vector } from "excalibur"
+
+class Game extends Engine {
+    startGame(){
+        this.scoreLabel = new Label({
+            text: 'Score: 0',
+            pos: new Vector(100, 50),
+            font: new Font({
+                family: 'Arial',
+                size: 24,
+                unit: FontUnit.Px,
+                color: Color.White
+            })
+        })
+        this.add(this.scoreLabel)
+        this.scoreLabel.text = `Score: 20`
+    }
+}
+```
+
+<br><br><br>
+
 
 ## Binnen beeld blijven
 
@@ -214,6 +246,9 @@ class Player extends Actor {
     }
 }
 ```
+
+<br><br><br>
+
 
 ## Camera follow
 
@@ -235,9 +270,9 @@ export class Game extends Engine {
 
 <br><br><br>
 
-# Resources
+## Geluid en fonts laden
 
-Plaats *images, fonts en sounds* in de `public` folder. Je kan daarbinnen submappen aanmaken:
+Plaats *images, fonts en sounds* in de `public` folder. 
 
 RESOURCES.JS
 
