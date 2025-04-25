@@ -7,6 +7,8 @@ Shader code is geschreven in de GLSL taal. Shader code moet je als string in je 
 - [Shadertoy water](https://www.shadertoy.com/view/MdlXz8)
 - [Balatro background](https://www.shadertoy.com/view/XXjGDt)
 - [Godot shaders](https://godotshaders.com)
+- [GLSL Sandbox](http://glslsandbox.com/)
+- [The book of shaders](https://thebookofshaders.com/)
 - [Vraag ChatGPT om een shader te schrijven](https://www.chatgpt.com)
 
 
