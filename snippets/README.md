@@ -25,6 +25,7 @@
 - [Actors zoeken in een Scene](#actors-zoeken)
 - [Een karakter met verschillende wapens](#wapens)
 - [Particles](./particles.md)
+- [Shaders](./shaders.md)
 - [Random tint](#random-tint)
 - [JSON laden](#json-laden)
 - [Afstanden en vectoren](./vector.md)
