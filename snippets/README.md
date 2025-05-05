@@ -150,7 +150,7 @@ export class Ship extends Actor {
     }
 }
 ```
-> *Een [Collision Group](https://excaliburjs.com/docs/collisiongroups/) zorgt dat actors in dezelfde group nooit met elkaar colliden.*
+⚠️ Een [Collision Group](./collisiongroup.md/) zorgt dat actors in dezelfde group nooit met elkaar colliden. Hiermee kan je bijvoorbeeld zorgen dat een speler niet door zijn eigen kogels of door andere spelers geraakt kan worden.
 
 <br><bR><br>
 

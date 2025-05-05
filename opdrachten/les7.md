@@ -175,9 +175,9 @@ export class Border extends Actor {
 
 <Br><br><br>
 
-## Collision group
+## Composite collider 
 
-Je kan meerdere collision shapes *(circles, edges en boxes)* samenvoegen tot 1 collider met een complexe vorm. Hieronder een voorbeeld van een capsule (twee circles en een box) en een coastline (onregelmatige lijnen).
+Je kan meerdere collision shapes *(circles, edges en boxes)* samenvoegen tot 1 *composite collider*. Hieronder een voorbeeld van een ***capsule*** (twee circles en een box) en een ***coastline*** (onregelmatige lijnen).
 
 *capsule*
 
@@ -214,3 +214,9 @@ export class CoastLine extends Actor {
     }
 }
 ```
+
+<Br><br><br>
+
+## Expert level: Collision groups
+
+Om te voorkomen dat spelers door hun eigen kogels geraakt kunnen worden kan je [collision groups](../snippets/collisiongroup.md) gebruiken.
