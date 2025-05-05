@@ -1,72 +1,71 @@
 # Collision Group
 
-Om te voorkomen dat een speler door zijn eigen kogels geraakt kan worden, of dat spelers elkaar kunnen raken in een multiplayer game, kan je collision groups aanmaken. Hierin geef je aan welke colliders met welke andere colliders mogen botsen.
+Om te voorkomen dat een speler door zijn eigen kogels geraakt kan worden, of dat spelers elkaar kunnen raken in een multiplayer game, kan je collision groups aanmaken. 
 
-*player.js*
+> *Actors in dezelfde collision group botsen niet met elkaar.*
+
+<Br><br><br>
+
+### Spelers onderling
+
+Player actors botsen nu niet meer met andere Player actors:
+
+`collidergroups.js`
 ```js
-import { CollisionGroupManager, CollisionGroup } from "excalibur"
+import { CollisionGroupManager } from "excalibur"
 
-export const playerCollisionGroup = CollisionGroupManager.create('player')
+export const playerGroup = CollisionGroupManager.create('player')
+
+```
+
+`player.js`
+
+```js
+import { playerGroup } from "./collidergroups.js"
 
 export class Player extends Actor {
   constructor() {
     super({
-      name: 'player',
-      pos: vec(200, 200),
       collisionType: CollisionType.Active,
-      collisionGroup: playerCollisionGroup,
+      collisionGroup: playerGroup,
     })
   }
 }
 ```
 
-Met de helper function `collidesWith` can je aangeven welke groups met elkaar kunnen colliden. Let op dat je platforms ook kunnen colliden.
+<Br><br><br>
 
+### Spelers en eigen kogels
+
+Met de helper function `collidesWith` kan je aangeven welke groups niet met elkaar botsen. Het kan handig zijn om dit in een eigen `.js` file te definiëren.
+
+`collidergroups.js`
 ```js
-const playerGroup = CollisionGroupManager.create('player')
-const npcGroup = CollisionGroupManager.create('npcGroup')
-const floorGroup = CollisionGroupManager.create('floorGroup')
-const enemyGroup = CollisionGroupManager.create('enemyGroup')
+import { CollisionGroup, CollisionGroupManager } from 'excalibur';
 
-const playersCanCollideWith = CollisionGroup.collidesWith([
-  playersGroup, // collide with other players
-  floorGroup, // collide with the floor
-  enemyGroup, // collide with enemies
-])
+export const playerGroup = CollisionGroupManager.create('player');
+export const bulletGroup = CollisionGroupManager.create('bullet');
 
-const enemiesCanCollideWith = CollisionGroup.collidesWith([
-  playerGroup, // collide with players
-  floorGroup, // collide with the floor
-])
+// elementen in dezelfde group botsen NIET met elkaar
+export const customGroup = CollisionGroup.collidesWith([playerGroup, bulletGroup]);
+```
+`player.js` en `bullet.js`
+```js
+import { customGroup } from "./collidergroups.js"
 
-const npcGroupCanCollideWith = CollisionGroup.collidesWith([
-  floorGroup, // only collides with the floor
-])
+export class Player extends Actor {
+  constructor() {
+    super({
+      collisionType: CollisionType.Active,
+      collisionGroup: customGroup,
+    })
+  }
+}
 ```
 
-Hieronder een vereenvoudigd voorbeeld waar je kan zien in welke group elke actor zit:
-
-```js
-const player = new Actor({
-  collisionGroup: playersCanCollideWith,
-})
-
-const npc = new Actor({
-  collisionGroup: npcGroupCanCollideWith,
-})
-
-const enemy = new Actor({
-  collisionGroup: enemiesCanCollideWith,
-})
-
-const floor = new Actor({
-  collisionType: CollisionType.Fixed
-  collisionGroup: floorGroup,
-})
-```
-
-<Br>
+<Br><Br><Br>
 
 ### Default collisions
 
-⚠️ Een actor zonder `collisionGroup` krijgt als default: `CollisionGroup.All` (bots met alles).
+- Een actor *met* collisiongroup botst automatisch *niet* met actors in diezelfde group.
+- Een actor *zonder* collisionGroup botst met alles (`CollisionGroup.All`).
