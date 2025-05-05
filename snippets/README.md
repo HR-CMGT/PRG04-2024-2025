@@ -127,16 +127,22 @@ export class Bowser extends Actor {
 
 ## Collision
 
-Met de collision events kan je checken of je Actor ergens tegenaan botst. Let op dat je actor een `width`,`height`, OF een `radius` heeft. Je kan `instanceof` gebruiken om te zien waar je tegenaan botst.
+Met de collision events kan je checken of je Actor ergens tegenaan botst. Let op dat je actor een `width`,`height`, OF een `radius` heeft. Het CollisionType bepaalt hoe objecten reageren op botsingen.
+
+- `CollisionType.Active` (objecten duwen elkaar weg)
+- `CollisionType.Passive` (objecten bewegen door elkaar heen)
+- `CollisionType.Fixed` (kan niet bewegen, objecten kunnen niet door fixed objecten heen)
+- `CollisionType.PreventCollision` (geen collisions)
+
+<br>
 
 ```javascript
 export class Ship extends Actor {
 
     constructor() {
-        super({ width: Resources.Ship.width, height: Resources.Ship.height }) 
-
+        super({ width: 100, height: 100, collisionType:CollisionType.Active }) 
         // hit circle
-        // super({radius: Resources.Ship.width/2})
+        // super({radius: 50, collisionType:CollisionType.Active})
     }
     
     onInitialize(engine) {
@@ -144,13 +150,15 @@ export class Ship extends Actor {
     }
 
     hitSomething(event){
-        if (event.other.owner instanceof Enemey) {
+        if (event.other.owner instanceof Enemy) {
+            // Je kan `instanceof` gebruiken om te zien waar je tegenaan botst.
             console.log('hit enemy')
         }
     }
 }
 ```
-⚠️ Een [Collision Group](./collisiongroup.md/) zorgt dat actors in dezelfde group nooit met elkaar colliden. Hiermee kan je bijvoorbeeld zorgen dat een speler niet door zijn eigen kogels of door andere spelers geraakt kan worden.
+- Met [Physics](./physics.md) maak je botsingen meer realistisch (zwaartekracht, gewicht)
+- Een [Collision Group](./collisiongroup.md/) zorgt dat actors in dezelfde group nooit met elkaar colliden. 
 
 <br><bR><br>
 

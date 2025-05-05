@@ -15,7 +15,6 @@ Player actors botsen nu niet meer met andere Player actors:
 import { CollisionGroupManager } from "excalibur"
 
 export const playerGroup = CollisionGroupManager.create('player')
-
 ```
 
 `player.js`
@@ -37,7 +36,7 @@ export class Player extends Actor {
 
 ### Spelers en eigen kogels
 
-Met de helper function `collidesWith` kan je aangeven welke groups niet met elkaar botsen. Het kan handig zijn om dit in een eigen `.js` file te definiëren.
+Met de helper function `collidesWith` kan je aangeven welke groups niet met elkaar botsen. 
 
 `collidergroups.js`
 ```js

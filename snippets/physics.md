@@ -1,25 +1,24 @@
 # Physics en hitbox
 
-In de game kan je `Realistic Physics` of `Arcade Physics` physics aanzetten. 
+In `game.js` kan je `Realistic Physics` of `Arcade Physics` physics aanzetten en de gravity bepalen: 
 
-- "Arcade" style physics which is good for basic collision detection for non-rotated rectangular areas. Example: platformers, tile based games, top down, etc
-- "Realistic" style physics which is good for rigid body games where realistic collisions are desired. Example: block stacking, angry bird's style games, etc
+- `Arcade` physics which is good for basic collision detection for non-rotated rectangular areas. Example: platformers, tile based games, top down, etc
+- `Realistic` physics which is good for rigid body games where realistic collisions are desired. Example: block stacking, angry bird's style games, etc
 
-Per object kan je het type physics collision aanpassen. 
+Per actor bepaal je wat er bij een botsing moet gebeuren:
 
-- `CollisionType.Active` (volledige physics simulatie)
-- `CollisionType.Passive` (wel events, geen physics)
-- `CollisionType.Fixed` (collision events, kan niet bewegen)
+- `CollisionType.Active` (objecten duwen elkaar weg)
+- `CollisionType.Passive` (objecten bewegen door elkaar heen)
+- `CollisionType.Fixed` (kan niet bewegen, objecten kunnen niet door fixed objecten heen)
+- `CollisionType.PreventCollision` (geen collisions)
 
-In de main game zet je physics aan en bepaal je de world gravity. Voor een space game of top-down game zet je de gravity op 0. Je kan ook per object de `body.useGravity` op true of false zetten. 
-
-⚠️ Let op dat al je objecten een [collision](./README.md#collision) box hebben! Je kan ook gebruik maken van *collision groups* om te bepalen welke objecten met elkaar kunnen colliden.
+⚠️ Let op dat al je objecten een [collision](./README.md#collision) box hebben! 
 
 <br><br><br>
 
-## Voorbeeld
+## Physics aanzetten
 
-GAME
+GAME.JS
 ```js
 const options = { 
     width: 800, height: 600, 
@@ -34,38 +33,37 @@ export class Game extends Engine {
     constructor() {
         super(options)
         this.start(ResourceLoader).then(() => this.startGame())
+        this.showDebug(true)  // hitboxen testen
     }
 }
 ```
 PLAYER - BOX COLLIDER
 ```js
 export class Player extends Actor {
-    constructor(x, y) {
-        super({ width: 50, height: 10 })
-        this.body.collisionType = CollisionType.Active
+    constructor() {
+        super({ width: 50, height: 10, collisionType: CollisionType.Active })
     }
 }
 ```
 PLATFORM - STATIC BOX COLLIDER
 ```js
 export class Platform extends Actor {
-    constructor(x, y) {
-        super({ width: 500, height: 100 })
-        this.body.collisionType = CollisionType.Fixed
+    constructor() {
+        super({ width: 500, height: 100, collisionType: CollisionType.Fixed })
     }
 }
 ```
 <br><br><br>
 
-## Hitbox 
+## Custom Hitbox 
 
 De hitbox hoeft niet hetzelfde te zijn als de `width,height` van de sprite. In dit voorbeeld maken we een custom hitbox.
 
 ```js
 export class Player extends Actor {
-    onInitialize(engine) {
-        const customHitbox = Shape.Box(100, 100, new Vector(10,10)) // width, height, offset
-        this.collider.set(customHitbox)
+    onInitialise(engine) {
+        const box = Shape.Box(100, 100) // optioneel: anchor, offset
+        this.collider.set(box)
     }
 }
 ```
@@ -79,18 +77,22 @@ Je kan een physics body de volgende properties meegeven:
 - `this.body.mass` 
 - `this.body.inertia`
 - `this.body.bounciness`  *(alleen bij useRealisticPhysics)*
-- `this.body.friction`  *(alleen bij useRealisticPhysics)*
+- `this.body.friction`    *(alleen bij useRealisticPhysics)*
     
 <br><br><br>
 
 ## Player controls en physics
     
-De physics engine regelt de `velocity` van je objecten zoals de speler. Effecten zoals stuiteren zal je niet zien als je handmatig de `velocity` van een object gaat aanpassen. Je kan `impulse` gebruiken om een *richting* aan de bestaande `velocity` te geven. Dit wordt beïnvloed door `mass`. Een zwaarder object zal moeizamer op snelheid komen. Dit werkt goed voor besturing van (ruimte) schepen of auto's. Als je handmatig de `velocity` zet, dan voelt de besturing hetzelfde als in een non-physics game.
+De physics engine regelt de `velocity` van je objecten zoals de speler. Effecten zoals stuiteren zal je niet zien als je handmatig de `velocity` van een object gaat aanpassen. 
+
+Daarom moet je `applyLinearImpulse` gebruiken om de bestaande `velocity` van een actor aan te passen. De uiteindelijke velocity wordt bepaald door `force`, `mass`, `friction`, etc. Dit werkt goed voor besturing van (ruimte) schepen of auto's. 
+
+Als je handmatig de `velocity` zet, dan voelt de besturing hetzelfde als in een non-physics game. Je kan ook kiezen om de `x` velocity handmatig te zetten (naar links en rechts lopen) en de `y` velocity te doen met `applyLinearImpulse` (springen en vallen).
 
 VOORBEELD
     
 ```js
-class SpaceShip extends Actor {
+class Mario extends Actor {
     constructor(x, y) {
         super({ width: 20, height: 60 })
         this.body.collisionType = CollisionType.Active
@@ -99,20 +101,18 @@ class SpaceShip extends Actor {
     onPreUpdate(engine, delta) {
         if (engine.input.keyboard.isHeld(Keys.D)) {
             this.body.applyLinearImpulse(new Vector(15 * delta, 0))
+            // alternatief, links en rechts lopen met velocity
+            // this.vel = new Vector(10, this.vel.y)
         }
     
         if (engine.input.keyboard.isHeld(Keys.A)) {
             this.body.applyLinearImpulse(new Vector(-15 * delta, 0))
+            // alternatief, links en rechts lopen met velocity
+            // this.vel = new Vector(-10, this.vel.y)
         }
     
-        if (this.grounded) {
-            if (engine.input.keyboard.wasPressed(Keys.Space)) {
-                this.body.applyLinearImpulse(new Vector(0, -250 * delta))
-                this.grounded = false           // grounded weer op true zetten na collision met ground
-        
-                // alternatief voor springen met velocity
-                // this.vel = new Vector(this.vel.x, this.vel.y - 400)
-            }
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            this.body.applyLinearImpulse(new Vector(0, -250 * delta))
         }
     }
 }
