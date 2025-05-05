@@ -4,40 +4,43 @@ Om te voorkomen dat een speler door zijn eigen kogels geraakt kan worden, of dat
 
 Hierin geef je aan welke colliders met welke andere colliders mogen botsen.
 
-Maak een apart `collisiongroups.js` bestand aan in je project, hierin maak je de groups. Dit hoeft geen class te zijn omdat je alleen variabelen aanmaakt. 
+Maak een apart `collisiongroups.js` bestand aan in je project, hierin maak je de groups. Volg daarin het volgende patroon. Hier zie je dat enemies met de floor kunnen colliden:
 
 
 *collisiongroups.js*
 ```js
 import { CollisionGroupManager, CollisionGroup } from "excalibur"
 
-const PlayerGroup = CollisionGroupManager.create('player')
-const EnemyGroup = CollisionGroupManager.create('enemy')
+const enemyCategory = CollisionGroupManager.create('enemies');
 
-export const PlayerCollisionGroup = CollisionGroup.collidesWith([
-    EnemyGroup,
-])
-
-export const EnemyCollisionGroup = CollisionGroup.collidesWith([
-    PlayerGroup,
-    EnemyGroup,
-])
+export const enemyGroup = new CollisionGroup(
+  enemyCategory.category,
+  CollisionGroup.collidesWith([floorGroup])
+);
 ```
 
 Nu kan je in de actors van je game de group meegeven bij het aanmaken van de actor.
 
 *enemy.js*
 ```js
-import { EnemyCollisionGroup } from './collisiongroups.js'
+import { enemyGroup } from './collisiongroups.js'
 
 export class Enemy extends Actor {
   constructor() {
     super({
       width: 32,
       height: 32,
-      collisionType: ex.CollisionType.Active,
-      collisionGroup: EnemyCollisionGroup,
+      collisionType: CollisionType.Active,
+      collisionGroup: enemyGroup,
     });
   }
 }
 ```
+
+<Br>
+
+### Default collisions
+
+⚠️ Een actor zonder `collisionGroup` krijgt als default: `CollisionGroup.All` (bots met alles).
+
+Zodra je een Actor wel een collisionGroup meegeeft moet je opletten dat alles waar je mee wil kunnen botsen in die group zit. Dus niet alleen vijanden maar ook alle platforms, hazards, etc. van je game.
