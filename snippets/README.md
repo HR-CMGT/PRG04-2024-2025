@@ -4,7 +4,7 @@
 ## Essentials
 
 - [Actors, flip en rotate](#actors)
-- [Collision Events](#collision)
+- [Collisions](#collision)
 - [Click en Exit Screen Events](#click-en-exit-screen-events)
 - [Keyboard besturing](#keyboard-besturing)
 - [Gamepad besturing](./gamepad.md)
@@ -34,9 +34,6 @@
 - [Online Multiplayer met Socket.IO](https://socket.io) of [Lance](https://lance-gg.github.io)
 - [Type Checking](./typechecking.md)
 - [Een excalibur project opzetten zonder het startproject](./snippets/advanced.md)
-- [Javascript games spelen op een handheld emulator](https://www.youtube.com/watch?v=osJsBRPSrM4)
-
-![retro](./retro-handheld.png)
 
 ## Assets
 
@@ -58,6 +55,9 @@
 - [Game Programming Patterns](https://gameprogrammingpatterns.com)
 - [MDN Game Development](https://developer.mozilla.org/en-US/docs/Games)
 - [MDN Object Oriented Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
+- [Javascript games spelen op een handheld emulator](https://www.youtube.com/watch?v=osJsBRPSrM4)
+
+![retro](./retro-handheld.png)
 
 
 <br><br><br>
@@ -157,6 +157,20 @@ export class Ship extends Actor {
     }
 }
 ```
+
+#### Hitbox
+
+De hitbox hoeft niet hetzelfde te zijn als de `width,height` van de sprite. In dit voorbeeld maken we een custom hitbox.
+
+```js
+export class Player extends Actor {
+    onInitialise(engine) {
+        const box = Shape.Box(100, 100) // optioneel: anchor, offset
+        this.collider.set(box)
+    }
+}
+```
+
 - Met [Physics](./physics.md) maak je botsingen meer realistisch (zwaartekracht, gewicht)
 - Een [Collision Group](./collisiongroup.md/) zorgt dat actors in dezelfde group nooit met elkaar colliden. 
 

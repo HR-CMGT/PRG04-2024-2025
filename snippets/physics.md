@@ -70,6 +70,20 @@ export class Player extends Actor {
 
 <br><br><br>
 
+## Acceleration
+
+Deze rocket vliegt steeds sneller omdat er een acceleratie is.
+
+```js
+export class Rocket extends Actor {
+    onInitialise(engine) {
+        this.acc = new Vector(5,0)
+    }
+}
+```
+
+<br><br><br>
+
 ## Physics properties
 
 Je kan een physics body de volgende properties meegeven:
