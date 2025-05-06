@@ -11,7 +11,7 @@
 
 <br>
 
-> ⚠️ *Disclaimer: AI modellen zijn nog niet heel goed in het werken met Excalibur. Hou je prompts daarom klein en vergelijk altijd het resultaat met de lesstof*
+> ⚠️ *Disclaimer: AI modellen zijn nog niet heel goed in het werken met Excalibur. Hou je prompts daarom klein, geef altijd instructies mee, en vergelijk altijd het resultaat met de lesstof*
 
 <br><br><br>
 
