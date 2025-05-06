@@ -71,8 +71,9 @@ engine.add(actor1);
 Je kan in je code editor automatisch prompt instructies meegeven:
 
 - Zet Copilot aan (gratis in VS Code)
-- Zet de "instructions" optie aan *(settings > copilot > instructions > use .copilot-review-instructions.md file)*
-- Plaats [deze instructions file](./.copilot-review-instructions.md) in de root van je project.
+- Zet de "instructions" optie aan: *settings > copilot > use instruction files*
+- Plaats [deze instructions file](./copilot-instructions.md) in `.github/copilot-instructions.md` in je project.
+- Je kan de instructies naar eigen voorkeur aanpassen.
 
 ![copi](./copilot-settings.png)
 
