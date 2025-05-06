@@ -1,12 +1,17 @@
 # Hulp vragen aan AI
 
 - [Prompting in de browser](#prompting)
+- [Voorbeelden](#prompt-voorbeelden)
 - [Resultaat evalueren](#resultaat-evalueren)
 - [Prompting in de editor](#copilot-in-vs-code)
 - [Prompt Instructions](#prompting)
 - [Chat met Github Repositories](#chat-met-de-repository)
 - [CMGT chatbot](#cmgt-chatbot)
 - [Codebase](#codebase)
+
+<br>
+
+> ⚠️ *Disclaimer: AI modellen zijn nog niet heel goed in het werken met Excalibur. Hou je prompts daarom klein en vergelijk altijd het resultaat met de lesstof*
 
 <br><br><br>
 
@@ -44,6 +49,26 @@ export class Enemy extends Actor {
     }
 }
 ```
+
+<br><br><br>
+
+## Prompt voorbeelden
+
+- Start with the setup of a game with a player and a enem
+- What is the benefit of using OOP programming for games
+- How can I make the player class respond to keyboard input
+- I have two enemy types, can you apply inheritance here
+- Why doesn't the player fall when I walk off the platform
+- My game class keeps the score. How can I adjust this from my player
+- I want to make the player shoot a bullet, what is a good way to handle this ?
+
+#### 🚨 Vibe coding
+
+Als je prompts te algemeen zijn ga je heel onvoorspelbare resultaten krijgen. Daarnaast helpt het je niet om de basis principes van game programming zelf te leren.
+
+- Maak een game
+- Maak flappy bird
+- Hij doet het niet
 
 <br><br><br>
 
