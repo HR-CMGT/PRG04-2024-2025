@@ -68,8 +68,8 @@ class Pong extends Game {
 - Laad de afbeeldingen in `resources.js`
 - Maak een Actor voor de achtergrondafbeelding
 - Plaats Actors op de voorgrond met een position en een velocity
-- Verwijder of verplaats de actors als er op geklikt wordt
 - Maak een FOR loop om heel veel actors te plaatsen. Zorg dat ze allemaal ergens anders staan en anders bewegen.
+- Als een actor uit beeld gaat krijgt hij weer een nieuwe random positie
 
 <br>
 <br>
