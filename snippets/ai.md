@@ -5,6 +5,7 @@
 - [Prompt Instructions in VS Code](#prompting)
 - [Chat met Github Repositories](#chat-met-de-repository)
 - [CMGT chatbot](#cmgt-chatbot)
+- [Codebase](#codebase)
 
 <br><br><br>
 
