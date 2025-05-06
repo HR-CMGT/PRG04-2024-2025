@@ -96,3 +96,11 @@ https://ai-assistent-mu.vercel.app
 
 <br><br><br>
 
+## Codebase
+
+⚠️ Optioneel
+
+- Plaats de PRG4 code snippets en de readme files van les 1 t/m 8 in je projectmap.
+- Gebruik de hashtag `#codebase` in je prompts in VS Code, dit zorgt dat copilot gaat zoeken in die .md files naar een antwoord. Prompts duren dan wel langer en kosten meer tokens!
+
+<br><br><br>
