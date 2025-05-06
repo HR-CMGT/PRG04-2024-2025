@@ -46,6 +46,10 @@ export class Enemy extends Actor {
 
 <br><br><br>
 
+## P
+
+<br><br><br>
+
 ## Resultaat evalueren
 
 Vraag ook om uitleg van gegenereerde code, zodat je zelf beter begrijpt.
@@ -71,9 +75,11 @@ engine.add(actor1);
 Je kan in je code editor automatisch prompt instructies meegeven:
 
 - Zet Copilot aan (gratis in VS Code)
+- Vraag eventueel het [student developer pack](https://education.github.com/pack) aan voor meer voordelen.
 - Zet de "instructions" optie aan: *settings > copilot > use instruction files*
 - Plaats [deze instructions file](./copilot-instructions.md) in `.github/copilot-instructions.md` in je project.
 - Je kan de instructies naar eigen voorkeur aanpassen.
+
 
 ![copi](./copilot-settings.png)
 
