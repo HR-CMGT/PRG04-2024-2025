@@ -1,15 +1,16 @@
 # Hulp vragen aan AI
 
-- [Prompting](#prompting)
+- [Prompting in de browser](#prompting)
 - [Resultaat evalueren](#resultaat-evalueren)
-- [Prompt Instructions in VS Code](#prompting)
+- [Prompting in de editor](#copilot-in-vs-code)
+- [Prompt Instructions](#prompting)
 - [Chat met Github Repositories](#chat-met-de-repository)
 - [CMGT chatbot](#cmgt-chatbot)
 - [Codebase](#codebase)
 
 <br><br><br>
 
-## Prompting
+## Prompting in de browser
 
 Bij het doen van een prompt in ChatGPT, Claude, Blackbox, etc. over Excalibur moet je goede instructies meegeven, omdat het antwoord anders niet voldoende overeenkomt met de werkwijze uit de lessen.
 
@@ -46,15 +47,9 @@ export class Enemy extends Actor {
 
 <br><br><br>
 
-## P
-
-<br><br><br>
-
 ## Resultaat evalueren
 
-Vraag ook om uitleg van gegenereerde code, zodat je zelf beter begrijpt.
-
-Check of gegenereerde code overeenkomt met de instructies. 
+Vraag om uitleg van gegenereerde code, zodat je zelf beter begrijpt. Check of gegenereerde code overeenkomt met de instructies. 
 
 🚨 *Hieronder zie je een voorbeeld van Excalibur code die niet overeenkomt met de lessen, omdat er geen instructies zijn meegegeven*
 
@@ -70,18 +65,29 @@ engine.add(actor1);
 
 <br><br><br>
 
+## Copilot in VS Code
+
+- Zet Copilot aan (gratis in VS Code)
+- Vraag eventueel het [student developer pack](https://education.github.com/pack) aan voor meer voordelen.
+- Leer het verschil tussen ASK / EDIT / AGENT mode, en de verschillende modellen
+- Gebruik CMD/CTRL + i om inline te prompten
+- Zet TAB mode uit
+- Maak een selectie in je code om daar specifiek vragen over te stelle±
+- Gebruik "/" om meteen iets uit te leggen of te fixen
+
+
+
+<br><br><br>
+
 ## Prompt Instructions in VS Code
 
 Je kan in je code editor automatisch prompt instructies meegeven:
 
-- Zet Copilot aan (gratis in VS Code)
-- Vraag eventueel het [student developer pack](https://education.github.com/pack) aan voor meer voordelen.
 - Zet de "instructions" optie aan: *settings > copilot > use instruction files*
 - Plaats [deze instructions file](./copilot-instructions.md) in `.github/copilot-instructions.md` in je project.
 - Je kan de instructies naar eigen voorkeur aanpassen.
 
-
-![copi](./copilot-settings.png)
+![copilot](./copilot-settings.png)
 
 <br><br><br>
 
