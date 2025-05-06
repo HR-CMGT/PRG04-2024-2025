@@ -105,6 +105,14 @@ export class Toad extends Actor {
     }
 }
 ```
+#### Bewegen in de richting van de rotation
+
+```js
+let fish = new Actor()
+fish.rotation = 0.3
+let directionVector = Vector.fromAngle(fish.rotation);
+fish.vel = directionVector
+```
 
 #### Flip sprite
 
