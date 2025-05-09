@@ -40,6 +40,9 @@ const Resources = {
     PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
 }
 ```
+Download [Pixel Font Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
+
+
 label
 ```js
 const score = new Label({
