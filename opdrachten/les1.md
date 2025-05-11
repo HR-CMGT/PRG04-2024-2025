@@ -42,6 +42,15 @@ Introductie werken met [Vite](https://vite.dev) en modules.
 - Start de dev server met `npm run dev`.
 - Stop de dev server met `ctrl + c`
 
+<br><br><br>
+
+## Troubleshooting
+
+Als `npm install` problemen geeft in windows:
+
+- [Geef powershell rechten om npm installs te mogen uitvoeren](https://dev.to/jackfd120/resolving-npm-execution-policy-error-in-powershell-a-step-by-step-guide-for-developers-32ip)
+- Of open een `cmd` terminal in plaats van `powershell` en voer daar `npm install` uit.
+
 <br>
 <br>
 <br>

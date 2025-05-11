@@ -16,7 +16,7 @@
 
 ## Lifecycle
 
-- Een Actor heeft ingebouwde *lifecycle* functies, bv: `kill()` verwijdert de actor uit de game.
+- Een Actor heeft ingebouwde methods die je kunt gebruiken, bv: `kill()` die Excalibur laat weten dat de Actor verwijderd moet worden.
 - Een Actor heeft `lifecycle` methods. Dit zijn methods die automatisch worden aangeroepen als er een bepaald event gebeurt.
     - De `onInitialize` method wordt aangeroepen als de Actor in de Game is geplaatst.
     - De `onPostUpdate` en `onPreUpdate` methods vinden 60 keer per seconde plaats *(je framerate)*.

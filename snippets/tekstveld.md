@@ -11,7 +11,7 @@
 Een `Label` is een `Actor` met een child `Text`. Hiermee kan je een stukje tekst op een positie plaatsen. Je kan de tekst achteraf nog aanpassen.
 
 ```javascript
-import { Label, FontUnit, Font} from "excalibur";
+import { Label, FontUnit, Font, Color } from "excalibur";
 
 let label = new Label({
     text: 'Score: 0',
@@ -19,7 +19,8 @@ let label = new Label({
     font: new Font({
         family: 'impact',
         size: 24,
-        unit: FontUnit.Px
+        unit: FontUnit.Px,
+        color:Color.White
     })
 })
 
@@ -40,6 +41,9 @@ const Resources = {
     PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
 }
 ```
+Download [Pixel Font Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
+
+
 label
 ```js
 const score = new Label({
