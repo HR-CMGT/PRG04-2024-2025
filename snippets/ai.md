@@ -54,7 +54,7 @@ export class Enemy extends Actor {
 
 ## Prompt voorbeelden
 
-- Start with the setup of a game with a player and a enem
+- Start with the setup of a game with a player and a enemy
 - What is the benefit of using OOP programming for games
 - How can I make the player class respond to keyboard input
 - I have two enemy types, can you apply inheritance here
@@ -109,8 +109,9 @@ engine.add(actor1);
 Je kan in je code editor automatisch prompt instructies meegeven:
 
 - Zet de "instructions" optie aan: *settings > copilot > use instruction files*
-- Plaats [deze instructions file](./copilot-instructions.md) in `.github/copilot-instructions.md` in je project.
-- Je kan de instructies naar eigen voorkeur aanpassen.
+- Plaats [copilot-instructions.md](./copilot-instructions.md) in `.github/copilot-instructions.md`.
+- Zet [⚙️ github.copilot.chat.codeGeneration.useInstructionFiles](vscode://settings/github.copilot.chat.codeGeneration.useInstructionFiles) op `true`.
+- [Meer info op de VS Code site](https://code.visualstudio.com/docs/copilot/copilot-customization#_use-instruction-files)
 
 ![copilot](./copilot-settings.png)
 

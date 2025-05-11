@@ -51,9 +51,6 @@ JSCONFIG.JSON
 }
 ```
 
-Als je het type écht niet weet kan je `type:any` gebruiken, maar dit is eigenlijk hetzelfde als geen type checking gebruiken.
-
-
 <br>
 <br>
 <br>
@@ -65,7 +62,7 @@ Typescript herkent automatisch types, dus je hoeft nu geen `@param` notatie meer
 ```bash
 § npm install typescript
 ```
-Je bestanden geef je nu een `.ts` extensie. Door `npm run dev` of `npm run build` te doen, wordt dit omgezet naar javascript. 
+Je bestanden geef je nu een `.ts` extensie en je gaat nu coderen in [typescript](https://www.typescriptlang.org). Door `npm run dev` of `npm run build` te doen, wordt dit automatisch omgezet naar javascript door `vite`. 
 
 TSCONFIG.JSON
 ```json

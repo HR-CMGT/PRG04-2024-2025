@@ -37,6 +37,7 @@
 
 ## Assets
 
+- [CraftPix 2D assets](https://craftpix.net)
 - [itch.io assets](https://itch.io/game-assets), [Open Game Art](https://opengameart.org), [Kenney Assets](https://www.kenney.nl/assets)
 - [Create Game Sounds](https://sfxr.me) en [AI Sound Effects](https://elevenlabs.io/sound-effects)
 - [Sprite Sheet Maker](https://www.finalparsec.com/tools/sprite_sheet_maker)
