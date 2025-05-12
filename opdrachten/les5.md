@@ -185,7 +185,7 @@ Je kan met `filter` een bepaald type ophalen, of je kan er met een `for` loop do
 class Game extends Engine {
 
     startGame(){
-        let = new Shark()
+        let someShark = new Shark()
         this.add(someShark)
         for(let i = 0; i < 10; i++) {
             let f = new Fish()
@@ -231,7 +231,7 @@ In de code van de shark moet je de controls afhankelijk maken van welke speler h
 - Player One: WASD 
 - Player Two : Cursor Keys
 
-Je kan ook een andere sprite gebruiken of een andere tint per speler: 
+Maak visueel duidelijk wie speler 1 en speler 2 is, bv. door de sprite aan te passen of de tint:
 
 ```js
 let sprite = Resources.Shark.toSprite()
