@@ -64,23 +64,11 @@ class Road extends Actor {
 
 # Oefening
 
-![result](../images/chicken-result.png)
-
-In de oefening plaatsen we kippen op een boomstam om te oefenen met inheritance en composition. De relaties tussen de classes kan je als diagram tekenen:
-
-- Kip en Boomstam zijn Actors ***(Inheritance)***
-- Game is Engine ***(Inheritance)***
-- Game heeft Boomstammen ***(Composition)***
-- Boomstam heeft kippen ***(Composition)***
-
 ![composition](../images/les6b.png)
 
-<br>
+In de oefening plaatsen we kippen op een boomstam om te oefenen met composition. 
 
-### 🐔 Chicken on a raft
-
-- Download met [excalibur chicken on a raft](https://github.com/HR-CMGT/prg4-chicken-on-a-raft)
-- Volg de opdracht in de readme file.
-- [Speel de theme song](https://www.youtube.com/watch?v=yVihOxP2QeY)
+- Ga naar [excalibur chicken on a raft](https://github.com/HR-CMGT/prg4-chicken-on-a-raft)
+- Download het project en volg de opdracht in de readme file.
 
 <br>
