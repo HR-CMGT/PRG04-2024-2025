@@ -5,6 +5,8 @@
   - Communicatie tussen game en actor
   - Waarden doorgeven
   - Communicatie tussen meerdere classes
+  - Actors zoeken
+  - Oefening: waarden doorgeven
 
 <Br>
 <Br>
@@ -172,3 +174,56 @@ class Player extends Actor {
     }
 }
 ```
+<br><br><br>
+
+## Actors zoeken
+
+De game heeft altijd een array `this.currentScene.actors` waarbinnen je kan zien welke actors nog alive zijn (geen `kill()` aangeroepen).
+Je kan met `filter` een bepaald type ophalen, of je kan er met een `for` loop doorheen loopen.
+
+```js
+class Game extends Engine {
+
+    startGame(){
+        let = new Shark()
+        this.add(someShark)
+        for(let i = 0; i < 10; i++) {
+            let f = new Fish()
+            this.add(f)
+        }
+    }
+
+    howManyLeft() {
+        let fishes = this.currentScene.actors.filter(act => actor instanceof Fish)
+        console.log(`Er zijn nog ${fishes.length} vissen`)
+    }
+
+    gameOver() {
+        for(let actor of this.currentScene.actors) {
+           actor.kill()
+        }
+        this.startGame()
+    }
+}
+```
+
+<br><br><br>
+
+# Oefening
+
+We gaan een local mutiplayer game maken met twee sharks. Bij het aanmaken van de shark geef je door of het player one of player two is.
+
+In de code van de shark moet je de controls afhankelijk maken van welke speler het is:
+
+- Player One: WASD 
+- Player Two : Cursor Keys
+
+Je kan ook een andere sprite gebruiken of een andere tint per speler: 
+
+```js
+let sprite = Resources.Shark.toSprite()
+sprite.tint = new Color(255, 100, 100) // red tint
+```
+
+
+
