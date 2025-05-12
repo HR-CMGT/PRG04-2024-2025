@@ -213,6 +213,19 @@ class Game extends Engine {
 
 We gaan een local mutiplayer game maken met twee sharks. Bij het aanmaken van de shark geef je door of het player one of player two is.
 
+```js
+class Game extends Engine {
+    startGame(){
+        let pOne = new Shark("player-one")
+        let pTwo = new Shark("player-two")
+
+        this.add(pOne)
+        this.add(pTwo)
+    }
+}
+```
+
+
 In de code van de shark moet je de controls afhankelijk maken van welke speler het is:
 
 - Player One: WASD 
