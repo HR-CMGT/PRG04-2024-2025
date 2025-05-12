@@ -9,6 +9,7 @@
 - [Keyboard besturing](#keyboard-besturing)
 - [Gamepad besturing](./gamepad.md)
 - [Camera volgt speler](#camera-volgt-speler)
+- [Geluid en Fonts laden](#sound-and-fonts)
 - [Spritesheet](./spritesheet.md)
 - [Scenes](#scenes)
 - [Physics en hitbox](./physics.md)
@@ -348,6 +349,51 @@ Om je [UI](./ui.md) in beeld te laten staan terwijl de camera beweegt, heb je ee
 
 <br><br><br>
 
+## Sound and fonts
+
+Geluid en fonts laden
+
+Plaats images, fonts en sounds in de public folder.
+
+RESOURCES.JS
+```js
+import { ImageSource, Sound, Resource, Loader, FontSource } from 'excalibur'
+const Resources = {
+    Ship: new ImageSource('images/ship.png'),
+    LevelStart: new Sound("sounds/LevelStart0.wav"),
+    PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
+}
+
+const ResourceLoader = new Loader()
+for (let res of Object.values(Resources)) {
+    ResourceLoader.addResource(res)
+}
+```
+Fonts en sounds gebruiken
+```js
+import {Label, FontUnit, Color, Vector} from "excalibur"
+import {Resources} from "./resources.js"
+
+class Game extends Engine {
+    startGame() {
+        // speel een geluidje
+        Resources.LevelStart.play()
+        // gebruik een pixel font
+        const label = new Label({
+            text: 'Score: 0',
+            pos: new Vector(0, 0),
+            font: Resources.PixelFont.toFont({
+                unit: FontUnit.Px,
+                size: 20,
+                color: Color.White
+            })
+        })
+        this.add(label)
+    }
+}
+```
+
+<br><br><br>
 
 ## Scenes
 
