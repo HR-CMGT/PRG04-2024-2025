@@ -29,19 +29,7 @@ class Robot extends Actor {
 ```
 ### Constructor en super()
 
-Als je in jouw class `extends` gebruikt dan moet je het `super()` keyword toevoegen aan je constructor. Dit zorgt dat de constructor van de parent class ook aangeroepen wordt:
-
-```js
-import { Actor } from "excalibur"
-
-class Robot extends Actor {
-    constructor() {
-        super()
-        console.log("ik ben een robot")
-    }
-}
-```
-In Excalibur wordt `super()` gebruikt om de hitbox aan de actor class door te geven.
+Als je in jouw class `extends` gebruikt dan moet je het `super()` keyword toevoegen aan je constructor. In Excalibur wordt `super()` gebruikt om de hitbox aan de actor class door te geven.
 ```js
 import { Actor } from "excalibur"
 
