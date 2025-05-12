@@ -1,7 +1,53 @@
 # Les 4 
 
+- Score tonen
 - Inheritance
 - Composition
+
+<Br><Br><Br>
+
+## Score tonen
+
+In de main game maak je een score label aan. Ook maak je een functie die de score kan updaten. Let op dat het label een property is (`this.label`).
+```js
+class Game extends Engine {
+
+ startGame() {
+   this.label = new Label({
+     text: 'Score: 0',
+     pos: new Vector(100, 100),
+     font: new Font({
+        family: 'Arial',
+        size: 24,
+        unit: FontUnit.Px,
+        color:Color.White
+     })
+    })
+    this.add(this.label)
+  }
+   updateScore(score) {
+     this.label.text = `Score: ${score}`
+  }
+}
+```
+
+Hou de score bij in je player. Als er een punt bij komt roep je de updateScore functie van Game.js aan. Let op dat de score een property is (`this.score`).
+
+```js
+class Shark extends Actor {
+    score
+    onInitialize(engine) {
+        this.score = 0
+    }
+    hitSomething(event){
+        if(event.other.owner instanceof Fish) {
+              this.score++
+              this.scene.engine.updateScore(this.score)
+        }
+    }
+}
+```
+
 
 <Br><Br><Br>
 
