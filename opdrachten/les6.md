@@ -3,6 +3,7 @@
 - Encapsulation
 - Wat is een klassendiagram
 - Timers en spawning
+- Enemy Behaviour
 
 <br><br><br>
 
@@ -88,15 +89,18 @@ Zie hier nog een [voorbeeld](../snippets/classdiagram.md)
 
 <br>
 
-### Opdracht
+# Opdracht
 
-Teken een klassendiagram voor jouw game.
+Teken het klassendiagram voor jouw inleveropdracht. Als je hier nog niet aan was begonnen is dit een mooi moment!
+
+- Bedenk welke classes er zijn in je game
+- Geef de classes "eigenschappen en gedrag"
+- Bedenk of die public of private zijn
+- Teken lijntjes tussen de classes voor composition en inheritance.
 
 <br><br><br>
 
-# Excalibur
-
-## Spawning en Timers
+## Spawning
 
 Met spawning bedoelen we dat er tijdens de game nieuwe actors worden aangemaakt. Als je schiet dan spawned er een bullet. Meestal geef je de `x,y` waarden mee, dat is waar de bullet moet verschijnen:
 
@@ -113,11 +117,30 @@ export class Bullet extends Actor {
 }
 ```
 
-Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate. Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
+## Timers
 
-> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
+Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden. In een actor kan je via een frame counter een bepaalde actie elke X seconden laten gebeuren:
 
-Om bij de huidige game te komen vanuit een `Actor` kan je `this.scene.engine` gebruiken. Om bij de huidige scene te komen vanuit een `Actor` kan je `this.scene` gebruiken.
+```js
+class Game extends Engine {
+
+   counter
+
+  startGame() {
+      this.counter = 0
+  }
+
+  onPostUpdate() {
+        this.counter++
+        if(this.counter > 120) {
+            this.add(new Enemy())
+            this.counter = 0
+        }
+  }
+}
+```
+
+Excalibur heeft ook een `Timer` class, deze moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate.  Om bij de huidige game te komen vanuit een `Actor` kan je `this.scene.engine` gebruiken. Om bij de huidige scene te komen vanuit een `Actor` kan je `this.scene` gebruiken.
 
 ```js
 export class Game extends Engine {
@@ -138,3 +161,53 @@ export class Game extends Engine {
 ```
 
 - [Zie Excalibur Timers](https://excaliburjs.com/docs/timers)
+
+<br><br><br>
+
+## Enemy behaviour
+
+Een vector kan je gebruiken als richting. X en Y zijn dan een getal tussen 0 en 1.
+`let direction = new Vector( 1, 0.7 )`
+
+Om met een snelheid in die richting te bewegen kan je scale toepassen:
+`this.vel = direction.scale(200)`
+
+Het verschil tussen twee vectoren kan je "normalizen" (omzetten naar richting).
+Nu kan je Luigi altijd achter Mario aan laten lopen!
+
+```js
+class Game extends Engine {
+    
+    mario
+    luigi
+
+    onInitialize(engine){
+        this.mario = new Mario()
+        this.luigi = new Luigi()
+        this.add(this.mario)
+        this.add(this.luigi)
+    }
+
+    onPostUpdate() {
+        let direction = this.mario.pos.sub(this.luigi.pos).normalize()
+        this.luigi.vel = direction.scale(200)
+    }
+}
+```
+Je kan via `distance` de afstand tussen de speler en een vijand opvragen. In dit voorbeeld rent de enemy weg als de speler te dicht in de buurt komt:
+
+```js
+class Enemy extends Actor {
+    onInitialize(engine){
+        this.pos = new Vector(500, 40)
+        this.vel = new Vector(0,0)
+    }
+    onPreUpdate(engine){
+        const distance = Vector.distance(engine.player.pos, this.pos)
+        if(distance < 200) {
+            let direction = this.sub(engine.player.pos).normalize()
+            this.vel = direction.negate().scale(200)
+        }
+    }
+}
+```
