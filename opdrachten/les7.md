@@ -23,14 +23,6 @@ Per object kan je het type physics collision aanpassen.
 | `CollisionType.Fixed`          | collision events, kan niet bewegen   |
 | `CollisionType.PreventCollision` | geen physics, geen collision events |
 
-
-Je kan een physics body de volgende properties meegeven:
-
-- `this.body.mass` 
-- `this.body.inertia`
-- `this.body.bounciness`  *(alleen bij useRealisticPhysics)*
-- `this.body.friction`  *(alleen bij useRealisticPhysics)*
-
 Je kan ook per object de `body.useGravity` op true of false zetten. Let op dat al je objecten een [collision](./README.md#collision) box hebben! 
 
 <br><br><br>
@@ -99,6 +91,19 @@ onPreUpdate(engine, delta) {
         this.body.applyLinearImpulse(new Vector(0, -250 * delta))
     }
 }
+```
+
+<br><br><br>
+
+## Physics properties
+
+Je kan een physics body de volgende properties meegeven:
+
+- `this.body.mass`          gewicht in kilo's
+- `this.body.inertia`       hoe snel stopt het object met draaien
+- `this.body.bounciness`    getal van 0 (niet bouncy) tot 1 (eeuwig stuiteren) - Realistic Physics
+- `this.body.friction`      getal van 0 (geen frictie) tot 1 (stopt alles) - Realistic Physics
+```js
 ```
 
 <br><br><br>
