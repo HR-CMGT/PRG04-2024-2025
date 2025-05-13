@@ -28,7 +28,16 @@ In de main game zet je physics aan en bepaal je de world gravity. Voor een space
 
 <br><br><br>
 
-## Voorbeeld
+# Lesopdracht
+
+Bouw de game ***🐔 Angry Chickens***. Gebruik onderstaande code snippets.
+
+https://github.com/HR-CMGT/angry-chickens
+
+
+<br><br><br>
+
+## Code Snippets
 
 GAME
 ```js
