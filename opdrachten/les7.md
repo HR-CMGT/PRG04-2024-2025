@@ -9,22 +9,29 @@
 <br><br><br>
 
 
-## Physics aan zetten
+## Physics setting in Game.js
 
-In de game kan je `Realistic Physics` of `Arcade Physics` physics aanzetten. 
-
-- "Arcade" style physics which is good for basic collision detection for non-rotated rectangular areas. Example: platformers, tile based games, top down, etc
-- "Realistic" style physics which is good for rigid body games where realistic collisions are desired. Example: block stacking, angry bird's style games, etc
+- "Arcade" : basic collision detection for non-rotated rectangular areas. Example: platformers, tile based games, top down, etc
+- "Realistic" : rigid body games where realistic collisions are desired. Example: block stacking, angry bird's style games, etc
 
 Per object kan je het type physics collision aanpassen. 
 
-- `CollisionType.Active` (volledige physics simulatie)
-- `CollisionType.Passive` (wel events, geen physics)
-- `CollisionType.Fixed` (collision events, kan niet bewegen)
+| Collision Type                 | Description                          |
+|--------------------------------|--------------------------------------|
+| `CollisionType.Active`         | volledige physics simulatie          |
+| `CollisionType.Passive`        | wel events, geen physics             |
+| `CollisionType.Fixed`          | collision events, kan niet bewegen   |
+| `CollisionType.PreventCollision` | geen physics, geen collision events |
 
-In de main game zet je physics aan en bepaal je de world gravity. Voor een space game of top-down game zet je de gravity op 0. Je kan ook per object de `body.useGravity` op true of false zetten. 
 
-⚠️ Let op dat al je objecten een [collision](./README.md#collision) box hebben! Je kan ook gebruik maken van *collision groups* om te bepalen welke objecten met elkaar kunnen colliden.
+Je kan een physics body de volgende properties meegeven:
+
+- `this.body.mass` 
+- `this.body.inertia`
+- `this.body.bounciness`  *(alleen bij useRealisticPhysics)*
+- `this.body.friction`  *(alleen bij useRealisticPhysics)*
+
+Je kan ook per object de `body.useGravity` op true of false zetten. Let op dat al je objecten een [collision](./README.md#collision) box hebben! 
 
 <br><br><br>
 
@@ -76,24 +83,10 @@ export class Platform extends Actor {
 }
 ```
 
-<br><br><br>
 
-## Physics properties
-
-Je kan een physics body de volgende properties meegeven:
-
-- `this.body.mass` 
-- `this.body.inertia`
-- `this.body.bounciness`  *(alleen bij useRealisticPhysics)*
-- `this.body.friction`  *(alleen bij useRealisticPhysics)*
+## Player 
     
-<br><br><br>
-
-## Player controls
-    
-De physics engine regelt de `velocity` van je objecten zoals de speler. Effecten zoals stuiteren zal je niet zien als je handmatig de `velocity` van een object gaat aanpassen. 
-
-Je kan `impulse` gebruiken om een *richting* aan de bestaande `velocity` te geven. Dit wordt beïnvloed door `mass`. Een zwaarder object zal moeizamer op snelheid komen. 
+De physics engine regelt de `velocity` van je objecten zoals de speler. Effecten zoals stuiteren zal je niet zien als je handmatig de `velocity` van een object gaat aanpassen. Je kan `impulse` gebruiken om een *richting* aan de bestaande `velocity` te geven. Dit wordt beïnvloed door `mass`. Een zwaarder object zal moeizamer op snelheid komen. 
 
 VOORBEELD
     
@@ -102,22 +95,8 @@ onInitialize(engine) {
     this.body.mass = 7    
 }
 onPreUpdate(engine, delta) {
-    if (engine.input.keyboard.isHeld(Keys.D)) {
-        this.body.applyLinearImpulse(new Vector(15 * delta, 0))
-    }
-
-    if (engine.input.keyboard.isHeld(Keys.A)) {
-        this.body.applyLinearImpulse(new Vector(-15 * delta, 0))
-    }
-
-    if (this.grounded) {
-        if (engine.input.keyboard.wasPressed(Keys.Space)) {
-            this.body.applyLinearImpulse(new Vector(0, -250 * delta))
-            this.grounded = false           // grounded weer op true zetten na collision met ground
-    
-            // alternatief voor springen met velocity
-            // this.vel = new Vector(this.vel.x, this.vel.y - 400)
-        }
+    if (engine.input.keyboard.wasPressed(Keys.Space)) {
+        this.body.applyLinearImpulse(new Vector(0, -250 * delta))
     }
 }
 ```
