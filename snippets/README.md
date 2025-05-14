@@ -9,6 +9,7 @@
 - [Keyboard besturing](#keyboard-besturing)
 - [Gamepad besturing](./gamepad.md)
 - [Camera volgt speler](#camera-volgt-speler)
+- [Geluid en Fonts laden](#sound-and-fonts)
 - [Spritesheet](./spritesheet.md)
 - [Scenes](#scenes)
 - [Physics en hitbox](./physics.md)
@@ -261,25 +262,29 @@ class Shark extends Actor {
 ```
 #### Binnen beeld blijven
 
-Pas de speed alleen aan als de actor nog voldoende van de rand van het level is verwijderd:
+Pas de speed alleen aan als de actor nog voldoende van de rand van het level is verwijderd. Omdat het draaipunt in het midden van het object zit,
+moeten we aan de randen van de viewport rekening houden met de helft van de hoogte en de breedte. 
 
 ```js
-class Player extends Actor {
-    onPreUpdate(engine){
-        let kb = engine.input.keyboard
-        if (kb.isHeld(Keys.Up) && this.pos.y > 30) {
-            yspeed = -300
-        }
-        if (kb.isHeld(Keys.Down) && this.pos.y < 470) {
-            yspeed = 300
-        }
-        if (kb.isHeld(Keys.Left) && this.pos.x > 30) {
-            xspeed = -300
-        }
-        if (kb.isHeld(Keys.Right) && this.pos.x < 770) {
-            xspeed = 300
-        }
+onPreUpdate(engine) {
+    let xspeed = 0;
+    let yspeed = 0;
+
+    let kb = engine.input.keyboard;
+    
+    if (kb.isHeld(Keys.Up) && this.pos.y > this.height / 2) {
+        yspeed = -300;
     }
+    if (kb.isHeld(Keys.Down) && this.pos.y < engine.drawHeight - this.height / 2) {
+        yspeed = 300;
+    }
+    if (kb.isHeld(Keys.Left) && this.pos.x > this.width / 2) {
+        xspeed = -300;
+    }
+    if (kb.isHeld(Keys.Right) && this.pos.x < engine.drawWidth - this.width / 2) {
+        xspeed = 300;
+    }
+    this.vel = new Vector(xspeed, yspeed);
 }
 ```
 
@@ -349,6 +354,51 @@ Om je [UI](./ui.md) in beeld te laten staan terwijl de camera beweegt, heb je ee
 
 <br><br><br>
 
+## Sound and fonts
+
+Geluid en fonts laden
+
+Plaats images, fonts en sounds in de public folder.
+
+RESOURCES.JS
+```js
+import { ImageSource, Sound, Resource, Loader, FontSource } from 'excalibur'
+const Resources = {
+    Ship: new ImageSource('images/ship.png'),
+    LevelStart: new Sound("sounds/LevelStart0.wav"),
+    PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
+}
+
+const ResourceLoader = new Loader()
+for (let res of Object.values(Resources)) {
+    ResourceLoader.addResource(res)
+}
+```
+Fonts en sounds gebruiken
+```js
+import {Label, FontUnit, Color, Vector} from "excalibur"
+import {Resources} from "./resources.js"
+
+class Game extends Engine {
+    startGame() {
+        // speel een geluidje
+        Resources.LevelStart.play()
+        // gebruik een pixel font
+        const label = new Label({
+            text: 'Score: 0',
+            pos: new Vector(0, 0),
+            font: Resources.PixelFont.toFont({
+                unit: FontUnit.Px,
+                size: 20,
+                color: Color.White
+            })
+        })
+        this.add(label)
+    }
+}
+```
+
+<br><br><br>
 
 ## Scenes
 

@@ -1,7 +1,53 @@
 # Les 4 
 
+- Score tonen
 - Inheritance
 - Composition
+
+<Br><Br><Br>
+
+## Score tonen
+
+In de main game maak je een score label aan. Ook maak je een functie die de score kan updaten. Let op dat het label een property is (`this.label`).
+```js
+class Game extends Engine {
+
+ startGame() {
+   this.label = new Label({
+     text: 'Score: 0',
+     pos: new Vector(100, 100),
+     font: new Font({
+        family: 'Arial',
+        size: 24,
+        unit: FontUnit.Px,
+        color:Color.White
+     })
+    })
+    this.add(this.label)
+  }
+   updateScore(score) {
+     this.label.text = `Score: ${score}`
+  }
+}
+```
+
+Hou de score bij in je player. Als er een punt bij komt roep je de updateScore functie van Game.js aan. Let op dat de score een property is (`this.score`).
+
+```js
+class Shark extends Actor {
+    score
+    onInitialize(engine) {
+        this.score = 0
+    }
+    hitSomething(event){
+        if(event.other.owner instanceof Fish) {
+              this.score++
+              this.scene.engine.updateScore(this.score)
+        }
+    }
+}
+```
+
 
 <Br><Br><Br>
 
@@ -29,48 +75,18 @@ class Robot extends Actor {
 ```
 ### Constructor en super()
 
-Als je in jouw class `extends` gebruikt dan moet je het `super()` keyword toevoegen aan je constructor. Dit zorgt dat de constructor van de parent class ook aangeroepen wordt:
-
+Als je in jouw class `extends` gebruikt dan moet je het `super()` keyword toevoegen aan je constructor. In Excalibur wordt `super()` gebruikt om de hitbox aan de actor class door te geven.
 ```js
 import { Actor } from "excalibur"
 
 class Robot extends Actor {
     constructor() {
-        super()
-        console.log("ik ben een robot")
-    }
-}
-```
-### Super in Excalibur
-
-In Excalibur wordt `super()` gebruikt om de `x,y` en de `width,height` aan de actor class door te geven.
-```js
-import { Actor } from "excalibur"
-
-class Robot extends Actor {
-    constructor() {
-        super({x:10, y:10, width:100, height:100})
+        super({width:100, height:100})
         console.log("ik ben een robot")
     }
 }
 ```
 
-> *🚨 Als je class geen constructor heeft, dan kan je `super()` ook weglaten.*
-
-<br><br><br>
-
-### Excalibur classes met inheritance
-
-Hieronder nog een aantal voorbeelden waarin je `extends` gebruikt om de functionaliteit van Excalibur aan jouw code toe te voegen.
-
-```js
-class Game extends Engine {
-}
-class MyText extends Label {
-}
-class MyLoader extends Loader {
-}
-```
 
 <Br><Br><Br>
 
@@ -90,42 +106,15 @@ class Road extends Actor {
     }
 }
 ```
-<br>
+<br><br><br>
 
-## Oefening
-
-In de volgende oefening plaatsen we kippen op een boomstam om te oefenen met inheritance en composition. De relaties tussen de classes kan je als diagram tekenen:
+# Oefening
 
 ![composition](../images/les6b.png)
 
-- Kip en Boomstam zijn Actors ***(Inheritance)***
-- Game is Engine ***(Inheritance)***
-- Game heeft Boomstammen ***(Composition)***
-- Boomstam heeft kippen ***(Composition)***
+In de oefening plaatsen we kippen op een boomstam om te oefenen met composition. 
 
-<br><br><br>
-
-## 🐔 Chicken on a raft
-
-- Begin met [excalibur chicken on a raft](https://github.com/HR-CMGT/prg4-chicken-on-a-raft)
-- Plaats `Tree` in de `Game`
-- Plaats `Chicken` op de `Tree`
-- Laat de kippen meebewegen met de boomstammen.
-- Laat de kippen heen en weer bewegen op de boomstammen
-- Geef de kippen een hoedje
-- [Speel de theme song](https://www.youtube.com/watch?v=yVihOxP2QeY)
+- Ga naar [excalibur chicken on a raft](https://github.com/HR-CMGT/prg4-chicken-on-a-raft)
+- Download het project en volg de opdracht in de readme file.
 
 <br>
-
-### Composition
-
-- Om `Actors` toe te voegen aan de `Game` gebruik je `this.add()`.
-- Om `Actors` toe te voegen aan een andere `Actor` gebruik je `this.addChild()`.
-
-<br>
-
-### Resultaat
-
-![result](../images/chicken-result.png)
-
-<Br><Br><Br>

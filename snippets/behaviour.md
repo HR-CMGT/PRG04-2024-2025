@@ -41,6 +41,7 @@ class Enemy extends Actor {
         this.vel = new Vector(0,0)
     }
     onPreUpdate(engine){
+        const distance = Vector.distance(engine.player.pos, this.pos)
         if(distance < 200) {
             let direction = this.sub(engine.player.pos).normalize()
             this.vel = direction.negate().scale(200)

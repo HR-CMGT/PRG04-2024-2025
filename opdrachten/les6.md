@@ -3,6 +3,7 @@
 - Encapsulation
 - Wat is een klassendiagram
 - Timers en spawning
+- Enemy Behaviour
 
 <br><br><br>
 
@@ -88,17 +89,20 @@ Zie hier nog een [voorbeeld](../snippets/classdiagram.md)
 
 <br>
 
-### Opdracht
+# Opdracht
 
-Teken een klassendiagram voor jouw game.
+Teken het klassendiagram voor jouw inleveropdracht. Als je hier nog niet aan was begonnen is dit een mooi moment!
+
+- Bedenk welke classes er zijn in je game
+- Geef de classes "eigenschappen en gedrag"
+- Bedenk of die public of private zijn
+- Teken lijntjes tussen de classes voor composition en inheritance.
 
 <br><br><br>
 
 # Excalibur
 
-## Spawning
-
-Met spawning bedoelen we dat er tijdens de game nieuwe actors worden aangemaakt. 
+## Spawning en Timers
 
 Als een Actor schiet, dan spawned er een bullet in de game. De positie van die bullet is meestal de positie van de actor.
 
@@ -147,14 +151,11 @@ export class Explosion extends Actor {
 }
 ```
 
+Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate. Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
 
-<br><br><br>
+> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
 
-## Timers
-
-Je kan in Excalibur geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
-
-De simpelste oplossing hiervoor is om zelf een frame counter bij te houden. Elke keer dat er een N aantal frames is verstreken laat je iets gebeuren.
+Om bij de huidige game te komen vanuit een `Actor` kan je `this.scene.engine` gebruiken. Om bij de huidige scene te komen vanuit een `Actor` kan je `this.scene` gebruiken.
 
 ```js
 export class Fish extends Actor {
@@ -176,16 +177,4 @@ export class Fish extends Actor {
 }
 ```
 
-Je kan in excalibur een `delay` toevoegen voordat code wordt uitgevoerd:
-
-```js
-class Fish extends Actor {
-
-    onInitialize(engine) {
-        engine.clock.schedule(() => {
-                console.log("this message shows after 2 seconds")
-        }, 2000)
-    }
-}
-
-```
+- [Zie Excalibur Timers](https://excaliburjs.com/docs/timers)
