@@ -96,45 +96,96 @@ Teken een klassendiagram voor jouw game.
 
 # Excalibur
 
-## Spawning en Timers
+## Spawning
 
-Met spawning bedoelen we dat er tijdens de game nieuwe actors worden aangemaakt. Als je schiet dan spawned er een bullet. Meestal geef je de `x,y` waarden mee, dat is waar de bullet moet verschijnen:
+Met spawning bedoelen we dat er tijdens de game nieuwe actors worden aangemaakt. 
+
+Als een Actor schiet, dan spawned er een bullet in de game. De positie van die bullet is meestal de positie van de actor.
 
 ```js
-export class ShooterGame extends Game {
-    spawnBullet(x, y) {
-        this.add(new Bullet(x, y))
+export class Player extends Actor {
+    shoot() {
+        let b = new Bullet()
+        b.pos = new Vector(this.pos.x, this.pos.y)
+        this.scene.add(b)
     }
 }
 export class Bullet extends Actor {
-    constructor(x, y) {
-        super({ x, y, width: 10, height: 10 }) 
+    constructor() {
+        super({ width: 10, height: 10 }) 
     }
 }
 ```
+> *Als de Player een child van een andere actor is, dan kan je ook via `this.globalPos.x, this.globalPos.y` de exacte positie in de wereld opvragen.*
 
-Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate. Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
-
-> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
-
-Om bij de huidige game te komen vanuit een `Actor` kan je `this.scene.engine` gebruiken. Om bij de huidige scene te komen vanuit een `Actor` kan je `this.scene` gebruiken.
+Vergeet niet om gespawnde bullets ook weer uit de game te verwijderen
 
 ```js
-export class Game extends Engine {
-    startGame() {
-        this.timer = new Timer({
-            fcn: () => this.spawn(),
-            interval: 800,
-            repeats: true
-        })
-        this.add(this.timer)
-        this.timer.start()
+export class Bullet extends Actor {
+    onInitialize(engine) {
+        this.events.on("exitviewport", () => this.kill());
     }
+}
+```
+### Explosions
 
-    spawn() {
-        this.add(new Ball())
+Als een bullet een vijand raakt kan je een explosie spawnen op die positie. De explosie verwijdert zichzelf na een fade-out.
+
+```js
+export class Explosion extends Actor {
+
+     constructor(x, y) {
+        super({x,y,width:100, height:100})
+     }
+     onPostUpdate(engine) {
+        this.scale = this.scale.add(new Vector(0.06, 0.06))
+        this.graphics.opacity -= 0.05
+        if(this.graphics.opacity < 0.01) {
+            this.kill()
+        }
     }
 }
 ```
 
-- [Zie Excalibur Timers](https://excaliburjs.com/docs/timers)
+
+<br><br><br>
+
+## Timers
+
+Je kan in Excalibur geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
+
+De simpelste oplossing hiervoor is om zelf een frame counter bij te houden. Elke keer dat er een N aantal frames is verstreken laat je iets gebeuren.
+
+```js
+export class Fish extends Actor {
+
+    frameCounter
+
+    constructor() {
+        super({width:100,height:100})
+        this.frameCounter = 0
+    }
+
+    onPostUpdate(engine) {
+        this.frameCounter++
+        if(this.frameCounter > 120) {
+            console.log("2 seconden verstreken")
+            this.frameCounter = 0
+        }
+    }
+}
+```
+
+Je kan in excalibur een `delay` toevoegen voordat code wordt uitgevoerd:
+
+```js
+class Fish extends Actor {
+
+    onInitialize(engine) {
+        engine.clock.schedule(() => {
+                console.log("this message shows after 2 seconds")
+        }, 2000)
+    }
+}
+
+```
