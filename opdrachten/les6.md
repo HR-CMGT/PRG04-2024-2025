@@ -117,6 +117,7 @@ export class Player extends Actor {
 export class Bullet extends Actor {
     constructor() {
         super({ width: 10, height: 10 }) 
+        this.vel = new Vector(100,0)
     }
 }
 ```

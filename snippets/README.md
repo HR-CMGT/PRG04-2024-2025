@@ -600,17 +600,43 @@ export class Game extends Engine {
  
 ## Actors zoeken
 
-Je kan via `scene.actors` alle actors uit een scene opvragen. Je kan met `filter` naar alle actors van een bepaald type zoeken.
+De game heeft een array van actors: `this.currentScene.actors` *(Vanuit een actor is dit: `this.scene.actors`)*
+
+Je kan met `filter` naar alle actors van een bepaald type zoeken. Je kan `find` gebruiken om een enkele actor van een type te zoeken. 
+
+Je kan ook zelf door de actors heen loopen.
 
 ```js
-export class Game extends Engine {
-    logEnemies() {
-        let allEnemies = this.currentScene.actors.filter(actor => actor instanceof Enemy)
-        console.log(allEnemies)
+class Game extends Engine {
+
+    startGame(){
+        let someShark = new Shark()
+        this.add(someShark)
+        for(let i = 0; i < 10; i++) {
+            let f = new Fish()
+            this.add(f)
+        }
+    }
+
+    howManyFishes() {
+        let fishes = this.currentScene.actors.filter(act => act instanceof Fish)
+        console.log(`Er zijn nog ${fishes.length} vissen`)
+    }
+
+    findShark() {
+        let shark = this.currentScene.actors.find(act => act instanceof Shark)
+        console.log(shark)
+    }
+
+    gameOver() {
+        for(let actor of this.currentScene.actors) {
+           actor.kill()
+        }
+        this.startGame()
     }
 }
 ```
-Met `actors.find()` kan je zoeken naar één specifieke actor, bv. de player.
+
 
 <Br><br><br>
 

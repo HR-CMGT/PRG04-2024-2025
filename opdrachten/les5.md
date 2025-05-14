@@ -179,7 +179,8 @@ class Player extends Actor {
 ## Actors zoeken
 
 De game heeft altijd een array `this.currentScene.actors` waarbinnen je kan zien welke actors nog alive zijn (geen `kill()` aangeroepen).
-Je kan met `filter` een bepaald type ophalen, of je kan er met een `for` loop doorheen loopen.
+
+Je kan met `filter` alle actors van een type ophalen. Met `find` krijg je de eerste actor van een type. Je kan met een `for` loop door je actors loopen.
 
 ```js
 class Game extends Engine {
@@ -193,9 +194,14 @@ class Game extends Engine {
         }
     }
 
-    howManyLeft() {
-        let fishes = this.currentScene.actors.filter(act => actor instanceof Fish)
+    howManyFishes() {
+        let fishes = this.currentScene.actors.filter(act => act instanceof Fish)
         console.log(`Er zijn nog ${fishes.length} vissen`)
+    }
+
+    findShark() {
+        let shark = this.currentScene.actors.find(act => act instanceof Shark)
+        console.log(shark)
     }
 
     gameOver() {
