@@ -261,25 +261,29 @@ class Shark extends Actor {
 ```
 #### Binnen beeld blijven
 
-Pas de speed alleen aan als de actor nog voldoende van de rand van het level is verwijderd:
+Pas de speed alleen aan als de actor nog voldoende van de rand van het level is verwijderd. Omdat het draaipunt in het midden van het object zit,
+moeten we aan de randen van de viewport rekening houden met de helft van de hoogte en de breedte. 
 
 ```js
-class Player extends Actor {
-    onPreUpdate(engine){
-        let kb = engine.input.keyboard
-        if (kb.isHeld(Keys.Up) && this.pos.y > 30) {
-            yspeed = -300
-        }
-        if (kb.isHeld(Keys.Down) && this.pos.y < 470) {
-            yspeed = 300
-        }
-        if (kb.isHeld(Keys.Left) && this.pos.x > 30) {
-            xspeed = -300
-        }
-        if (kb.isHeld(Keys.Right) && this.pos.x < 770) {
-            xspeed = 300
-        }
+onPreUpdate(engine) {
+    let xspeed = 0;
+    let yspeed = 0;
+
+    let kb = engine.input.keyboard;
+    
+    if (kb.isHeld(Keys.Up) && this.pos.y > this.height / 2) {
+        yspeed = -300;
     }
+    if (kb.isHeld(Keys.Down) && this.pos.y < engine.drawHeight - this.height / 2) {
+        yspeed = 300;
+    }
+    if (kb.isHeld(Keys.Left) && this.pos.x > this.width / 2) {
+        xspeed = -300;
+    }
+    if (kb.isHeld(Keys.Right) && this.pos.x < engine.drawWidth - this.width / 2) {
+        xspeed = 300;
+    }
+    this.vel = new Vector(xspeed, yspeed);
 }
 ```
 
