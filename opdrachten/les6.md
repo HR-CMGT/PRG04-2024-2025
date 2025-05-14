@@ -3,7 +3,8 @@
 - Encapsulation
 - Wat is een klassendiagram
 - Timers en spawning
-- Enemy Behaviour
+- Oefening
+- Expert level: Enemy Behaviour
 
 <br><br><br>
 
@@ -193,26 +194,24 @@ class Fish extends Actor {
 }
 
 ```
-Excalibur heeft ook een `Timer` class:
-
-```js
-export class Game extends Engine {
-    startGame() {
-        this.timer = new Timer({
-            fcn: () => this.spawnBall(),
-            interval: 800,
-            repeats: true
-        })
-        this.add(this.timer)
-        this.timer.start()
-    }
-
-    spawnBall() {
-        this.add(new Ball())
-    }
-}
-```
-
-Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate.
 
 > *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
+
+<br><br><br>
+
+# Oefening
+
+- Open je Shark + Fishes project van les 1,2 en 3
+- Verwijder de bubbles uit game.js
+- Verwijder de collision code uit de haai
+- Geef de haai de volgende code:
+    - Als er op de spatie is gedrukt spawned er een bubble voor de haai
+    - De bubble beweegt snel naar rechts
+    - Als de bubble een vis raakt gaat de vis dood
+    - Als de bubble uit beeld verdwijnt verwijder je de bubble
+
+<br><br><br>
+
+## Bonus content: enemy behaviour
+
+Bekijk de slides van deze les voor tips over het geven van gedrag aan je vijanden.
