@@ -102,7 +102,7 @@ Teken het klassendiagram voor jouw inleveropdracht. Als je hier nog niet aan was
 
 # Excalibur
 
-## Spawning en Timers
+## Spawning
 
 Als een Actor schiet, dan spawned er een bullet in de game. De positie van die bullet is meestal de positie van de actor.
 
@@ -151,11 +151,13 @@ export class Explosion extends Actor {
 }
 ```
 
-Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate. Je kan geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
+<br><Br><br>
 
-> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
+## Timer
 
-Om bij de huidige game te komen vanuit een `Actor` kan je `this.scene.engine` gebruiken. Om bij de huidige scene te komen vanuit een `Actor` kan je `this.scene` gebruiken.
+Je kan in Excalibur geen `setInterval` of `setTimeout` gebruiken omdat daarbij geen rekening met de gameloop wordt gehouden.
+
+De simpelste oplossing hiervoor is om zelf een frame counter bij te houden. Elke keer dat er een aantal frames is verstreken laat je iets gebeuren.
 
 ```js
 export class Fish extends Actor {
@@ -177,4 +179,39 @@ export class Fish extends Actor {
 }
 ```
 
-- [Zie Excalibur Timers](https://excaliburjs.com/docs/timers)
+Je kan in excalibur een `delay` toevoegen voordat code wordt uitgevoerd:
+
+```js
+class Fish extends Actor {
+
+    onInitialize(engine) {
+        engine.clock.schedule(() => {
+                console.log("this message shows after 2 seconds")
+        }, 2000)
+    }
+}
+
+```
+Excalibur heeft ook een `Timer` class:
+
+```js
+export class Game extends Engine {
+    startGame() {
+        this.timer = new Timer({
+            fcn: () => this.spawnBall(),
+            interval: 800,
+            repeats: true
+        })
+        this.add(this.timer)
+        this.timer.start()
+    }
+
+    spawnBall() {
+        this.add(new Ball())
+    }
+}
+```
+
+Een `Timer` moet je toevoegen aan de `Game` (of `Scene`). Dat zorgt dat de Timer synchroon loopt met je gameloop framerate.
+
+> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
