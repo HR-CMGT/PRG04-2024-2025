@@ -5,8 +5,8 @@
 ## Communicatie tussen classes
 
   - Communicatie van actor naar game
-  - Waarden doorgeven
-  - Communicatie tussen meerdere classes
+  - Waarden doorgeven aan een actor
+  - Communicatie tussen actors
   - Actors zoeken
   - Oefening
   - Oefening
@@ -67,7 +67,7 @@ class Game extends Engine {
 <Br>
 
 
-## Waarden doorgeven
+## Waarden doorgeven aan een actor
 
 Als je met `new` een instance aanmaakt dan kan je waarden doorgeven, die waarden komen binnen in de `constructor` van jouw class.
 
@@ -106,7 +106,7 @@ class Game extends Engine {
 <Br>
 <Br>
 
-## Communicatie tussen classes onderling
+## Communicatie tussen actors
 
 ### Collision
 
@@ -140,7 +140,7 @@ export class Fish extends Actor {
 <Br>
 <Br>
 
-### Classes van de game aanroepen
+### De UI class aanroepen
 
 Je kan via `this.scene.engine` ook classes aanroepen die in de game beschikbaar zijn, zoals een `UI` class.
 
@@ -184,7 +184,7 @@ class Player extends Actor {
 
 ## Actors zoeken
 
-De game heeft altijd een array `this.currentScene.actors` waarbinnen je kan zien welke actors nog alive zijn (geen `kill()` aangeroepen).
+De game heeft altijd een array `this.currentScene.actors` waarbinnen je kan zien welke actors nog alive zijn (geen `kill()` aangeroepen). Die array kan je vanuit een actor ook vinden via `this.scene.actors`.
 
 Je kan met `filter` alle actors van een type ophalen. Met `find` krijg je de eerste actor van een type. Je kan met een `for` loop door je actors loopen.
 
@@ -200,13 +200,13 @@ class Game extends Engine {
         }
     }
 
-    howManyFishes() {
-        let fishes = this.currentScene.actors.filter(act => act instanceof Fish)
+    findFishes() {
+        let fishes = this.currentScene.actors.filter(actor => actor instanceof Fish)
         console.log(`Er zijn nog ${fishes.length} vissen`)
     }
 
     findShark() {
-        let shark = this.currentScene.actors.find(act => act instanceof Shark)
+        let shark = this.currentScene.actors.find(actor => actor instanceof Shark)
         console.log(shark)
     }
 
@@ -294,10 +294,15 @@ sprite.tint = Color.fromRGB(Math.random() * 255, Math.random() * 255, Math.rando
 
 - Voeg een *Mine* class toe aan je project, met dit [plaatje van een mine](../images/mine.png).
 - Er is één mine in het aquarium die langzaam naar links beweegt
-- De fish krijgt naast de functie `wasEatenByShark` ook een `wasHitByMine` functie.
-- Maak een functie `destroyAllFishes()` in `game.js` die zoekt naar alle fishes (zie hierboven voor snippet)
-- Loop door de gevonden fishes met een `for` loop, roep per fish de `wasHitByMine` functie aan. 
-- Als de Shark de Mine pakt roep je de `destroyAllFishes()` functie van `game.js` aan. De mine verdwijnt of wordt gereset.
+- In de Shark voeg je een collision check toe die kijkt of je een `Mine` hebt geraakt.
+- Zo ja, dan zoekt de shark via `this.scene.actors` naar alle Fishes in de scene:
+
+```js
+// vanuit de shark:
+let fishes = this.scene.actors.filter(actor => actor instanceof Fish)
+```
+
+- Loop door de gevonden fishes array met een `for` loop, roep per fish de `wasEatenByShark` functie aan. 
 - Je kan dit verbeteren door alleen de fishes te verwijderen die in beeld zijn! `if (!fish.isOffScreen) {...}`
 - Hoeveel punten krijgt de shark?
 
