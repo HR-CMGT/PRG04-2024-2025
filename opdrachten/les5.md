@@ -1,5 +1,7 @@
 # Les 5
 
+![preview](../images/les5view.png)
+
 ## Communicatie tussen classes
 
   - Communicatie van actor naar game
