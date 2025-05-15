@@ -2,7 +2,7 @@
 
 ## Communicatie tussen classes
 
-  - Communicatie tussen game en actor
+  - Communicatie van actor naar game
   - Waarden doorgeven
   - Communicatie tussen meerdere classes
   - Actors zoeken
@@ -15,7 +15,7 @@
 <Br>
 
 
-## Communicatie tussen game en actor
+## Communicatie van actor naar game
 
 - Een `Actor` krijgt het `engine` argument in de `update` en `initialize` functies, dit verwijst naar jouw `game` class. 
 - Je kan de game vanuit een actor ook altijd aanroepen via `this.scene.engine`.
@@ -134,7 +134,11 @@ export class Fish extends Actor {
 }
 ```
 
-### Classes vinden via de Game
+<Br>
+<Br>
+<Br>
+
+### Classes van de game aanroepen
 
 Je kan via `this.scene.engine` ook classes aanroepen die in de game beschikbaar zijn, zoals een `UI` class.
 
@@ -157,9 +161,7 @@ class Game extends Engine {
 UI.JS
 ```javascript
 class UI extends Actor {
-    
     score = 0
-    
     showScore(){
         console.log(this.score)
     }
@@ -168,7 +170,6 @@ class UI extends Actor {
 PLAYER.JS
 ```javascript
 class Player extends Actor {
-    
     hitSomething(event){
         if(event.other.owner instanceof Coin) {
             this.scene.engine.ui.showScore()
