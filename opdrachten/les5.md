@@ -6,7 +6,9 @@
   - Waarden doorgeven
   - Communicatie tussen meerdere classes
   - Actors zoeken
-  - Oefening: waarden doorgeven
+  - Oefening
+  - Oefening
+  - Oefening
 
 <Br>
 <Br>
@@ -174,6 +176,7 @@ class Player extends Actor {
     }
 }
 ```
+
 <br><br><br>
 
 ## Actors zoeken
@@ -217,6 +220,43 @@ class Game extends Engine {
 
 # Oefening
 
+- Voeg onderstaande UI class toe aan je project
+- Maak een instance van de UI in ***game.js*** : `this.ui = new UI()`
+- De ***Shark*** heeft een eigenschap `this.score`
+- De Shark krijgt een punt als je een Fish raakt
+- De Shark roept de functie `showScore()` aan van de `ui` om de punten te tonen.
+
+```js
+import {Vector, Actor, Label, Font, FontUnit, Color } from "excalibur"
+
+class UI extends Actor {
+
+    label
+
+    constructor() {
+        super()
+        this.label = new Label({
+            text: 'Score: 0',
+            pos: new Vector(100, 100),
+            font: new Font({
+                family: 'Arial',
+                size: 24,
+                unit: FontUnit.Px,
+                color:Color.White
+            })
+        })
+        this.add(this.label)
+    }
+    showScore(score) {
+        this.label.text = `Score: ${score}`
+    }
+}
+```
+
+<br><br><br>
+
+# Oefening
+
 We gaan een local mutiplayer game maken met twee sharks. Bij het aanmaken van de shark geef je door of het player one of player two is.
 
 ```js
@@ -231,18 +271,30 @@ class Game extends Engine {
 }
 ```
 
-
-In de code van de shark moet je de controls afhankelijk maken van welke speler het is:
-
-- Player One: WASD 
-- Player Two : Cursor Keys
-
-Maak visueel duidelijk wie speler 1 en speler 2 is, bv. door de sprite aan te passen of de tint:
+- In de code van de shark moet je de controls afhankelijk maken van welke speler het is:
+Player One: WASD, Player Two : Cursor Keys
+- Toon van beide sharks de score in de UI
+- Maak visueel duidelijk wie speler 1 en speler 2 is, bv. door de sprite aan te passen of de tint:
 
 ```js
 let sprite = Resources.Shark.toSprite()
+this.graphics.use(sprite)
 sprite.tint = new Color(255, 100, 100) // red tint
 ```
+
+
+<br><br><br>
+
+# Oefening
+
+![mine](../images/mine.png)
+
+- Voeg een *Mine* class toe aan je project, met dit [plaatje van een mine](../images/mine.png).
+- Er is één mine in het aquarium die langzaam naar links beweegt
+- Maak een functie `destroyAllFishes()` in `game.js` die zoekt naar alle fishes (zie hierboven voor snippet)
+- De functie roept van alle fishes de `reset` functie aan. 
+- Als de Shark de Mine pakt roep je de `destroyAllFishes()` functie aan. De mine verdwijnt of wordt gereset.
+- Hoeveel punten krijgt de shark?
 
 
 
