@@ -274,12 +274,12 @@ class Game extends Engine {
 - In de code van de shark moet je de controls afhankelijk maken van welke speler het is:
 Player One: WASD, Player Two : Cursor Keys
 - Toon van beide sharks de score in de UI
-- Maak visueel duidelijk wie speler 1 en speler 2 is, bv. door de sprite aan te passen of de tint:
+- Geef de Shark een random tint zodat ze er niet precies hetzelfde uit zien
 
 ```js
 let sprite = Resources.Shark.toSprite()
 this.graphics.use(sprite)
-sprite.tint = new Color(255, 100, 100) // red tint
+sprite.tint = Color.fromRGB(Math.random() * 255, Math.random() * 255, Math.random() * 255)
 ```
 
 
@@ -291,9 +291,11 @@ sprite.tint = new Color(255, 100, 100) // red tint
 
 - Voeg een *Mine* class toe aan je project, met dit [plaatje van een mine](../images/mine.png).
 - Er is één mine in het aquarium die langzaam naar links beweegt
+- De fish krijgt naast de functie `wasEatenByShark` ook een `wasHitByMine` functie.
 - Maak een functie `destroyAllFishes()` in `game.js` die zoekt naar alle fishes (zie hierboven voor snippet)
-- De functie roept van alle fishes de `reset` functie aan. 
-- Als de Shark de Mine pakt roep je de `destroyAllFishes()` functie aan. De mine verdwijnt of wordt gereset.
+- Loop door de gevonden fishes met een `for` loop, roep per fish de `wasHitByMine` functie aan. 
+- Als de Shark de Mine pakt roep je de `destroyAllFishes()` functie van `game.js` aan. De mine verdwijnt of wordt gereset.
+- Je kan dit verbeteren door alleen de fishes te verwijderen die in beeld zijn! `if (!fish.isOffScreen) {...}`
 - Hoeveel punten krijgt de shark?
 
 
