@@ -1,111 +1,108 @@
 # Les 6 
 
-- Encapsulation
-- Wat is een klassendiagram
-- Timers en spawning
+- Herhaling klassendiagram
+- Expert level: Encapsulation
 - Oefening
+- Spawning
+- Oefening
+- Oefening
+- Timers
 - Expert level: Enemy Behaviour
 
 <br><br><br>
 
-## Encapsulation
+## Herhaling Klassendiagram
 
-Je classes hebben properties en methods. Deze kan je afschermen voor andere classes door ze `private` te maken. Dit helpt om je code overzichtelijker en veiliger te maken. Een `private` onderdeel kan nooit door andere classes aangepast worden.
+Een klassendiagram is een visuele weergave van je project. Je kan OOP classes tekenen als blokjes, waarin je de methods en properties aangeeft. Tussen de classes teken je pijltjes die aangeven wat de relatie tussen de classes is:
 
-In javascript kan je `private` properties aangeven met een `#` symbool. 
-
-Als je vanuit een andere class toch een private waarde wil kunnen uitlezen, dan maak je daar een `get` functie voor, in dit voorbeeld zie je `getDetails()`.
-
-```js
-class Car {
-  #brand;
-  #mileage;
-
-  constructor(brand) {
-    this.#brand = brand;
-    this.#mileage = 0; 
-  }
-
-  getDetails() {
-    return `${this.#brand}, - ${this.#mileage} miles`;
-  }
-
-  drive() {
-    this.#increaseMileage(10)
-  }
-
-  #increaseMileage(distance) {
-    this.#mileage += distance;
-  }
-}
-```
-
-<br><br><br>
-
-## Klassendiagram
-
-Een klassendiagram is een visuele weergave van je project. Je kan OOP classes tekenen als blokjes, waarin je de methods en properties aangeeft. Met een `+` en `-` geef je aan of de properties en methods public of private zijn.
-
-```mermaid
-classDiagram
-    class Player{
-        +number lives
-        -number coins
-        +run()
-        -jump()
-    }
-```
-
-Tussen de classes teken je pijltjes die aangeven wat de relatie tussen de classes is:
-- Een class *heeft* een andere class, dit is *composition*: *Een Wombat IS een Animal*.
-- Een class *is* een subtype van een andere class, dit is *inheritance*: *Een Wombat HEEFT een Hoedje*.
+- Een class *heeft* een andere class (composition) *Mario heeft een PowerUp*.
+- Een class *is* een andere class (inheritance) *Mario is een Actor*.
 
 <br>
 
 ```mermaid
 classDiagram
-    Animal <|-- Eend
-    Animal <|-- Wombat
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    Wombat --* Hoedje
-    class Eend{
-      +String beakColor
-      +swim()
-      +quack()
+    Actor <|-- Mario
+    Actor <|-- Koopa
+    Mario --* PowerUp
+    class Actor{
+      pos
+      vel
+      onInitialize()
+      onPostUpdate()
     }
-    class Hoedje{
-      -number color
-      -number price
+    class Mario{
+      powerup
+      jump()
+      groundpound()
     }
-    class Wombat{
-      +bool is_wild
-      +run()
+    class Koopa{
+      direction
+      jump()
+    }
+    class PowerUp{
+      damage
+      use()
     }
 ```
 
 Zie hier nog een [voorbeeld](../snippets/classdiagram.md)
 
-<br>
+<br><br><br>
 
-# Opdracht
+# Oefening
 
-Teken het klassendiagram voor jouw inleveropdracht. Als je hier nog niet aan was begonnen is dit een mooi moment!
+Teken het klassendiagram voor jouw inleveropdracht.
 
-- Bedenk welke classes er zijn in je game
-- Geef de classes "eigenschappen en gedrag"
-- Bedenk of die public of private zijn
+- Begin met het omschrijven van je game in een korte tekst.
+- Bedenk vervolgens welke onderdelen daarvan een eigen class kunnen krijgen.
+- Dit zijn meestal objecten waar je "eigenschappen en gedrag" aan kan geven.
 - Teken lijntjes tussen de classes voor composition en inheritance.
+
+### Templates
+- Endless runner
+- Space Shooter
+- Fishing Game
+- Zombie Survivor
+- Platform game
 
 <br><br><br>
 
-# Excalibur
+## Expert level: Encapsulation
+
+Je classes hebben properties en methods. Deze kan je afschermen voor andere classes door ze `private` te maken. In javascript doe je dat door de properties en methods achter een hekje `#` te zetten. Deze zijn nu niet meer bruikbaar voor code buiten de `Car` class.
+
+```js
+class Car {
+    #brand;
+    #mileage;
+
+    constructor(brand) {
+        this.#brand = brand;
+        this.#mileage = 0; 
+    }
+
+    getDetails() {
+        return `${this.#brand}, - ${this.#mileage} miles`;
+    }
+
+    drive() {
+        this.#increaseMileage(10)
+    }
+
+    #increaseMileage(distance) {
+        this.#mileage += distance;
+    }
+}
+```
+
+
+
+<br><br><br>
 
 ## Spawning
 
-Als een Actor schiet, dan spawned er een bullet in de game. De positie van die bullet is meestal de positie van de actor.
+Dit betekent dat je tijdens de gameplay nieuwe instances aanmaakt met het `new` keyword. Bijvoorbeeld, als een Actor schiet, dan spawned er een bullet in de game. De positie van die bullet is meestal de positie van de actor.
 
 ```js
 export class Player extends Actor {
@@ -153,6 +150,68 @@ export class Explosion extends Actor {
 }
 ```
 
+
+<br><br><br>
+
+# Oefening
+
+![graatje](../images/bones.png)
+
+Begin met de shark + fishes opdracht uit les 1,2,3
+
+### Deel 1
+- Als een Fish door de Shark wordt geraakt dan wordt de Fish gereset (dit hebben we in les 3 gemaakt)
+- Voeg [dit vissengraat plaatje](../images/bones.png) toe aan je Resources
+- Maak een class voor de Vissengraat
+
+### Deel 2
+- Spawn een vissengraat *in de game* zodra de Fish geraakt is door de Shark, *op de plek van de Fish*
+- De code hiervoor zet je in Fish.js
+- De vissengraat zakt langzaam naar de bodem.
+- Als de vissengraat de bodem bereikt verwijder je de vissengraat.
+
+### Tips:
+- Gebruik de pos van de Fish om de Visgraat op de juiste plek te zetten. 
+- Je kan de visgraat omlaag laten zakken met velocity
+- Gebruik "onPostUpdate" of het "exitviewport" event om te weten wanneer je de visgraat weg moet halen.
+
+
+
+<br><br><br>
+
+# Oefening
+
+![bubbels](../images/bubble.png)
+
+Ga verder met de shark + fishes opdracht
+
+### Deel 1
+- Zorg dat je een Bubble class hebt met [dit plaatje van een luchtbel](../images/bubble.png)
+- Verwijder eventuele Bubbles uit je game class, als die er nog stonden van vorige les.
+- Verwijder de collision code uit de haai (comment)
+
+### Deel 2
+- Geef die collision code aan de Bubble (als de bubble een fish raakt, wordt de Fish gereset)
+- Geef de bubble een velocity van 100,0 (beweegt snel naar rechts)
+
+### Deel 3
+- Geef de Haai een Shoot() functie.
+- Voeg code toe in de Shark die checkt of de spatiebalk "wasPressed" (dus niet "isHeld")
+- Zo ja, dan roep je de "shoot()" functie aan van de Haai
+- In deze functie spawn je een bubble op de plek van de Haai.
+
+### Tips
+- Spawn de bubble in de Scene met this.scene.add
+- Check of het spawnen van de "Bones" nog steeds werkt (in Fish.js)
+- Gebruik de pos van de Shark om de Bubble op de juiste plek te zetten. Misschien moet de bubble iets naar rechts?
+
+
+
+
+
+
+
+
 <br><Br><br>
 
 ## Timer
@@ -195,23 +254,8 @@ class Fish extends Actor {
 
 ```
 
-> *🚨 Als je objecten spawned, moet je opletten dat die objecten aan de huidige game/scene worden toegevoegd!*
-
 <br><br><br>
 
-# Oefening
-
-- Open je Shark + Fishes project van les 1,2 en 3
-- Verwijder de bubbles uit game.js
-- Verwijder de collision code uit de haai
-- Geef de haai de volgende code:
-    - Als er op de spatie is gedrukt spawned er een bubble voor de haai
-    - De bubble beweegt snel naar rechts
-    - Als de bubble een vis raakt gaat de vis dood
-    - Als de bubble uit beeld verdwijnt verwijder je de bubble
-
-<br><br><br>
-
-## Bonus content: enemy behaviour
+## Expert level: enemy behaviour
 
 Bekijk de slides van deze les voor tips over het geven van gedrag aan je vijanden.
