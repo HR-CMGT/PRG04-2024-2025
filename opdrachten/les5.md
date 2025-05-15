@@ -218,6 +218,7 @@ class Game extends Engine {
     }
 }
 ```
+> *De actors array kan je vanuit een actor vinden via `this.scene.actors`.*
 
 <br><br><br>
 
@@ -298,13 +299,19 @@ sprite.tint = Color.fromRGB(Math.random() * 255, Math.random() * 255, Math.rando
 - Zo ja, dan zoekt de shark via `this.scene.actors` naar alle Fishes in de scene:
 
 ```js
-// vanuit de shark:
 let fishes = this.scene.actors.filter(actor => actor instanceof Fish)
 ```
 
 - Loop door de gevonden fishes array met een `for` loop, roep per fish de `wasEatenByShark` functie aan. 
-- Je kan dit verbeteren door alleen de fishes te verwijderen die in beeld zijn! `if (!fish.isOffScreen) {...}`
 - Hoeveel punten krijgt de shark?
+
+#### Expert
+
+- Je kan dit verbeteren door alleen de fishes te verwijderen die in beeld zijn! 
+
+```js
+if (!fish.isOffScreen) {...}
+```
 
 
 
