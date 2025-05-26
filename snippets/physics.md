@@ -62,8 +62,10 @@ De hitbox hoeft niet hetzelfde te zijn als de `width,height` van de sprite. In d
 ```js
 export class Player extends Actor {
     onInitialise(engine) {
-        const box = Shape.Box(100, 100) // optioneel: anchor, offset
-        this.collider.set(box)
+        this.collider.useBoxCollider(100, 100);
+
+        // je kan een anchor en center meegeven als de box niet precies in het midden van de actor moet staan
+        this.collider.useBoxCollider(100, 100, new Vector(0,0), new Vector(0,0));
     }
 }
 ```
