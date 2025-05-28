@@ -24,6 +24,21 @@ export class Player extends Actor {
 }
 ```
 
+`bullet.js`
+
+```js
+import { friendsGroup } from "./collisiongroups.js"
+
+export class Bullet extends Actor {
+  constructor() {
+    super({
+      collisionType: CollisionType.Active,
+      collisionGroup: friendsGroup,
+    })
+  }
+}
+```
+
 
 <Br><Br><Br>
 
