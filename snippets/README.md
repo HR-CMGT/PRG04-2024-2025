@@ -44,7 +44,7 @@
 - [Create Game Sounds](https://sfxr.me) en [AI Sound Effects](https://elevenlabs.io/sound-effects)
 - [Sprite Sheet Maker](https://www.finalparsec.com/tools/sprite_sheet_maker)
 - [AI Pixel Art generator](https://aipixelartgenerator.com/) 
-- [Pixel fonts](https://www.dafont.com/bitmap.php)
+- [Game Fonts](https://itch.io/c/3410586/fonts) and [Pixel fonts](https://www.dafont.com/bitmap.php)
 
 ## Links
 
